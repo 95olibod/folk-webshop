@@ -1,0 +1,8 @@
+header {
+    min-height: 30rem;
+    width: auto;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-image: url("https://terrigen-cdn-dev.marvel.com/content/prod/1x/theavengers_lob_mas_dsk_03_1.jpg");
+}
