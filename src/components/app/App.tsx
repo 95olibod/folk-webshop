@@ -1,16 +1,24 @@
-import React from 'react';
+import React from "react";
 // import './App.css';
-import Header from '../header/header';
+import Header from "../header/header";
+import Movie from "../movie/MovieGrid";
 
 function App() {
-  return (
+    return (
+        <body>
+            <header>
+                <div>
+                    <Header />
+                </div>
+            </header>
 
-
-    
-      <Header/>
-        
-    
-  );
+            <main>
+                <div>
+                    <Movie />
+                </div>
+            </main>
+        </body>
+    );
 }
 
 export default App;
