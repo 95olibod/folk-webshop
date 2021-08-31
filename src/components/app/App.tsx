@@ -1,13 +1,16 @@
 import React from 'react';
 // import './App.css';
 import Header from '../header/header';
+import Navbar from '../navbar/Navbar'
 
 function App() {
   return (
-
+    <div>
+      <Navbar></Navbar>
+      <Header/>
+    </div>
 
     
-      <Header/>
         
     
   );
