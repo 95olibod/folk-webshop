@@ -3,6 +3,8 @@ import { MovieData } from "./movie";
 import "./movie.css";
 import React, { FC } from "react";
 import { makeStyles, createStyles } from "@material-ui/core/styles";
+import { useContext } from "react";
+import { MovieContext } from "../../contexts/movieContext";
 
 interface Props {
   movie: MovieData;
@@ -12,7 +14,9 @@ const MovieCard: FC<Props> = ({ movie }) => {
   //SKRIV OM TILL REM ISTÄLLET FÖR PX "2rem"
   const useStyles = makeStyles(() =>
     createStyles({
-      image: { width: "200px" },
+      image: { width: "200px",
+      cursor:"pointer"},
+      
       movieBox: {
         display: "flex",
         flexDirection: "column",
@@ -24,14 +28,13 @@ const MovieCard: FC<Props> = ({ movie }) => {
         width: 450,
         marginTop: 20,
         marginLeft: 20,
-        cursor:"pointer"
         // marginRight: 20,
       },
     })
   );
 
   //TODO
-  //const { likedImages, toggleLikedImage } = useContext(ImageContext);
+  const { addedMovies, toggleAddedMovies } = useContext(MovieContext);
 
   const classes = useStyles();
   return (
@@ -41,14 +44,15 @@ const MovieCard: FC<Props> = ({ movie }) => {
         key={movie.id}
         src={movie.imageUrl}
         alt=""
-        onClick={() => alert("klickade")}
-        //onClick={() => toggleLikedImage(image.id)}
+        //onClick={() => alert("Klickade på film")}
+        onClick={() => toggleAddedMovies(movie.id)}
       />
       <p>{movie.price}</p>
       <p>{movie.title}</p>
-      <Button onClick={() => alert("Klickade på film")}></Button>
+      <Button onClick={() => addedMovies.includes(movie.id)}></Button>
     </div>
   );
 };
+
 
 export default MovieCard;

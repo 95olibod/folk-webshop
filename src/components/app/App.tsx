@@ -1,17 +1,15 @@
-import { BrowserRouter } from 'react-router-dom';
-import Layout from '../layout/layout';
+import { BrowserRouter } from "react-router-dom";
+import MovieProvider from "../../contexts/movieContext";
+import Layout from "../layout/layout";
 
 function App() {
   return (
-
-     <BrowserRouter>
-      
-        <Layout/>
-      
+    <BrowserRouter>
+      <MovieProvider>
+        <Layout />
+      </MovieProvider>
     </BrowserRouter>
-  ); 
+  );
 }
 
 export default App;
-
-
