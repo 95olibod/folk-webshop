@@ -3,15 +3,10 @@ import './cartButton.css';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import { Link } from "react-router-dom";
 
-interface Props {
-    onClick: MouseEventHandler<HTMLButtonElement>;
-}
-
-const CartButton: FC<Props> = ({ onClick }) => {
+const CartButton = () => {
 
     return (
-
-        <button className= "cart-btn" onClick={onClick}>
+        <button className= "cart-btn" >
             <Link to="/checkout" style={noLinkStyle}>
             <ShoppingCartIcon className= "shoppingcart" fontSize="small" ></ShoppingCartIcon>
             </Link>
