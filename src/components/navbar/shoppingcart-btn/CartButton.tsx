@@ -1,5 +1,5 @@
 import React, {FC, MouseEventHandler} from "react";
-import './CartButton.css';
+import './cartButton.css';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 
 interface Props {

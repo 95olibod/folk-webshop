@@ -1,17 +1,13 @@
 
 import React from 'react';
-import Header from '../header/header';
-import Navbar from '../navbar/Navbar';
-import Movie from "../movie/MovieGrid";
+import Layout from '../layout/layout';
 
 function App() {
   return (
-    <div>
-      <Navbar></Navbar>
-      <Header/>
-      <Movie />
-    </div>     
+    <Layout></Layout>    
   );
 }
 
 export default App;
+
+
