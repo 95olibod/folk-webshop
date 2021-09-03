@@ -1,3 +1,5 @@
+
+
 const DetailsPage = () => {
     return (
         <div>

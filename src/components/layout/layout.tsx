@@ -1,16 +1,25 @@
-import React from 'react';
-import Header from '../header/header';
-import Navbar from '../navbar/navbar';
+import React from "react";
+import Header from "../header/header";
+import Navbar from "../navbar/navbar";
 import Movie from "../movie/movieGrid";
+import { Route, Switch } from "react-router-dom";
+import HomePage from "../../pages/homepage";
+import ConfirmationPage from "../../pages/confirmationPage";
+import DetailsPage from "../../pages/detailsPage";
+import CheckoutPage from "../../pages/checkOutPage";
 
 function Layout() {
   return (
     <div>
       <Navbar />
       <Header />
-      
-      <Movie />
-    </div>     
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+        <Route path="/details" component={DetailsPage} />
+        <Route path="/checkout" component={CheckoutPage} />
+        <Route path="/confirm" component={ConfirmationPage} />
+      </Switch>
+    </div>
   );
 }
 
