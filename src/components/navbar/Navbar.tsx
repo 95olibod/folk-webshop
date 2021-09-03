@@ -1,6 +1,6 @@
 import React from "react";
-import './Navbar.css';
-import Button from './shoppingcart-btn/CartButton';
+import './navbar.css';
+import Button from './shoppingcart-btn/cartButton';
 
 const Navbar = () => {
 

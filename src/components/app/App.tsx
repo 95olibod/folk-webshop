@@ -1,17 +1,17 @@
-
-import React from 'react';
-import Header from '../header/header';
-import Navbar from '../navbar/Navbar';
-import Movie from "../movie/MovieGrid";
+import { BrowserRouter } from 'react-router-dom';
+import Layout from '../layout/layout';
 
 function App() {
   return (
-    <div>
-      <Navbar></Navbar>
-      <Header/>
-      <Movie />
-    </div>     
-  );
+
+     <BrowserRouter>
+      
+        <Layout/>
+      
+    </BrowserRouter>
+  ); 
 }
 
 export default App;
+
+
