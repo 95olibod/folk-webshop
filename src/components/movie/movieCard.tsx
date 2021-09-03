@@ -14,9 +14,8 @@ const MovieCard: FC<Props> = ({ movie }) => {
   //SKRIV OM TILL REM ISTÄLLET FÖR PX "2rem"
   const useStyles = makeStyles(() =>
     createStyles({
-      image: { width: "200px",
-      cursor:"pointer"},
-      
+      image: { width: "200px", cursor: "pointer" },
+
       movieBox: {
         display: "flex",
         flexDirection: "column",
@@ -44,15 +43,13 @@ const MovieCard: FC<Props> = ({ movie }) => {
         key={movie.id}
         src={movie.imageUrl}
         alt=""
-        //onClick={() => alert("Klickade på film")}
-        onClick={() => toggleAddedMovies(movie.id)}
       />
       <p>{movie.price}</p>
       <p>{movie.title}</p>
-      <Button onClick={() => addedMovies.includes(movie.id)}></Button>
+      {/* <Button onClick={() => addedMovies.includes(movie.id)}></Button> */}
+      <Button onClick={() => toggleAddedMovies(movie.id)}></Button>
     </div>
   );
 };
-
 
 export default MovieCard;
