@@ -1,7 +1,6 @@
 import React from "react";
 import Header from "../header/header";
 import Navbar from "../navbar/navbar";
-import Movie from "../movie/movieGrid";
 import { Route, Switch } from "react-router-dom";
 import HomePage from "../../pages/homepage";
 import ConfirmationPage from "../../pages/confirmationPage";

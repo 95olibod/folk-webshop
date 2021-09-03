@@ -1,4 +1,16 @@
-const Movies = [
+export interface MovieData {
+    id: number,
+    title: string,
+    realeseYear: string,
+    duration: string,
+    price: string,
+    storyline:
+    string,
+    imageUrl:
+    string,
+}
+
+export const movies: MovieData[]  = [
     {
         id: 0,
         title: "Iron Man",
@@ -44,5 +56,3 @@ const Movies = [
             "https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_FMjpg_UX1000_.jpg",
     },
 ];
-
-export default Movies;
