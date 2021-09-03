@@ -9,22 +9,23 @@ interface Props {
   movie: MovieData;
 }
 
-const MovieCard: FC<Props> = ({ movie }) => {
+const MovieDetailCard: FC<Props> = ({ movie }) => {
   const { toggleAddedMovies } = useContext(MovieContext);
 
   return (
-    <div className="movie-homepage-card">
+    <div className="movie-details-card">
       <img
-        className="homepage-image"
+        className="details-image"
         key={movie.id}
         src={movie.imageUrl}
         alt=""
       />
       <p>{movie.price}</p>
       <p>{movie.title}</p>
+      <p>{movie.storyline}</p>
       <Button onClick={() => toggleAddedMovies(movie.id)}></Button>
     </div>
   );
 };
 
-export default MovieCard;
+export default MovieDetailCard;
