@@ -53,6 +53,10 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const MovieCheckoutCard: FC<Props> = ({ movie }) => {
   const classes = useStyles();
+  const { addedMovies } = useContext(MovieContext);
+
+ const count = addedMovies.filter((obj) => obj === movie.id).length;
+ console.log(count);
 
   return (
       
@@ -76,14 +80,12 @@ const MovieCheckoutCard: FC<Props> = ({ movie }) => {
                 </Typography>
               </Grid>
 
-              
-
               <div className="flex row space-between">
                 <div className="flex row">
                   <Fab color="default" size="small" aria-label="remove">
                     <RemoveIcon />
                   </Fab>
-                  <p>antal</p>
+                  <p>{count}</p>
                   <Fab color="primary" size="small" aria-label="add">
                     <AddIcon />
                   </Fab>
