@@ -6,8 +6,16 @@
     flex-direction: column;
 }
 
+.row {
+    flex-direction: row;
+}
+
 .flex-wrap {
     flex-wrap: wrap;
+}
+
+.space-between {
+    justify-content: space-between;
 }
 
 .movie-homepage-card {
