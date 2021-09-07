@@ -1,13 +1,14 @@
 .navbar {
     display: flex;
     flex-grow: 1;
-    justify-content: flex-end;
+    justify-content: space-between;
     height: 3rem;
     width: 100%;
     background-color: rgba(2, 0, 3, 0.26);
     position: absolute;
     top: 0;
-    background-size:contain;
+    background-size: contain;
+    position: fixed;
 }
 
 @media (max-width: 1024px) {
