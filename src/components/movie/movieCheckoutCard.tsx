@@ -4,11 +4,11 @@ import Fab from "@material-ui/core/Fab";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
-import AddIcon from "@material-ui/icons/Add";
 import React, { FC, useContext } from "react";
 import { MovieContext } from "../../contexts/movieContext";
 import DeleteButton from "../movie/button/deleteButton";
 import DecreaseButton from "./button/decreaseButton";
+import IncreaseButton from "./button/increaseButton";
 import { MovieData } from "./movie";
 import "./movie.css";
 
@@ -87,9 +87,7 @@ const MovieCheckoutCard: FC<Props> = ({ movie }) => {
                     onClick={() => decreaseAddedMovies(movie.id)}
                   />
                   <p>{count}</p>
-                  <Fab color="primary" size="small" aria-label="add">
-                    <AddIcon />
-                  </Fab>
+                  <IncreaseButton onClick={() => toggleAddedMovies(movie.id)}/>
                 </div>
                 <DeleteButton onClick={() => deleteFromAddedMovies(movie.id)} />
               </div>

@@ -20,16 +20,15 @@ const MovieProvider: FC = (props) => {
   );
 
   const toggleAddedMovies = (id: number) => {
-      setAddedMovies([...addedMovies, id]);
+    setAddedMovies([...addedMovies, id]);
   };
 
   const decreaseAddedMovies = (id: number) => {
-
-      const indexOfMovieToRemove = addedMovies.findIndex(
-        (imageId) => imageId === id
-      );
-      addedMovies.splice(indexOfMovieToRemove, 1);
-      setAddedMovies([...addedMovies]);
+    const indexOfMovieToRemove = addedMovies.findIndex(
+      (imageId) => imageId === id
+    );
+    addedMovies.splice(indexOfMovieToRemove, 1);
+    setAddedMovies([...addedMovies]);
   };
 
   const deleteFromAddedMovies = (id: number) => {
