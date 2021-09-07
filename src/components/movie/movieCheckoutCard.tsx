@@ -16,6 +16,7 @@ import RemoveIcon from "@material-ui/icons/Remove";
 import DeleteIcon from "@material-ui/icons/Delete";
 import IconButton from "@material-ui/core/IconButton";
 
+
 interface Props {
   movie: MovieData;
 }
@@ -51,11 +52,21 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
+
 const MovieCheckoutCard: FC<Props> = ({ movie }) => {
   const classes = useStyles();
+  const { addedMovies } = useContext(MovieContext);
+
+  const count = addedMovies.filter((obj) => obj === movie.id).length;
+  console.log(count);
+
+  //  const delsumma = movie.price * count;
+  //  summa = delsumma + summa;
+  //  console.log(movie.price * count);
+
+  //  console.log(summa);
 
   return (
-      
     <div className={classes.root}>
       <Paper className={classes.paper}>
         <Grid container spacing={2}>
@@ -76,14 +87,12 @@ const MovieCheckoutCard: FC<Props> = ({ movie }) => {
                 </Typography>
               </Grid>
 
-              
-
               <div className="flex row space-between">
                 <div className="flex row">
                   <Fab color="default" size="small" aria-label="remove">
                     <RemoveIcon />
                   </Fab>
-                  <p>antal</p>
+                  <p>{count}</p>
                   <Fab color="primary" size="small" aria-label="add">
                     <AddIcon />
                   </Fab>
@@ -106,6 +115,7 @@ const MovieCheckoutCard: FC<Props> = ({ movie }) => {
     </div>
   );
 };
+
 export default MovieCheckoutCard;
 
 /*

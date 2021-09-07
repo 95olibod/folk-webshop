@@ -1,7 +1,12 @@
 import { MovieContext } from "../contexts/movieContext";
 import { useContext } from "react";
 import MovieCheckoutCard from "../components/movie/movieCheckoutCard";
-import { movies } from "../components/movie/movie";
+import { MovieData, movies } from "../components/movie/movie";
+import MoviePriceTotal from "../components/movie/moviePriceTotal";
+
+interface Props {
+  movie: MovieData;
+}
 
 const CheckoutPage = () => {
   const { addedMovies } = useContext(MovieContext);
@@ -14,7 +19,13 @@ const CheckoutPage = () => {
     <div>
       {AddedMoviesList.map((movie) => (
         <MovieCheckoutCard key={movie.id} movie={movie} />
-      ))}
+        ))};
+         {AddedMoviesList.map((movie) => (
+        <MoviePriceTotal key={movie.id} movie={movie} />
+        ))};
+        
+       
+     
     </div>
   );
 };
