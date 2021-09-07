@@ -1,22 +1,36 @@
-import { FC, useContext } from "react";
+
+import { useContext } from "react";
 import { MovieContext } from "../../contexts/movieContext";
-import { MovieData } from "./movie";
+import { movies } from "./movie";
 
-interface Props {
-    movie: MovieData;
-  }
+const MoviePriceTotal = () => {
+      
+      const { addedMovies } = useContext(MovieContext);
 
-const MoviePriceTotal: FC<Props> = ({ movie }) => {
-    const { addedMovies } = useContext(MovieContext);
-    let summa = 0;
-    for (const item of addedMovies) {
-      if (item === movie.id) {
-        summa += movie.price;
-      }
-    }
+      const AddedMoviesList = movies.filter((movie) =>
+      addedMovies.includes(movie.id)
   
-    return (
-        <p>summan : {summa}</p>
+      );  
+  
+      let newArray = []
+      for(const item of addedMovies)
+      {
+          const arr = AddedMoviesList.find((movie) => item === movie.id)  
+          if(arr)
+          {
+            newArray.push(arr)
+          }
+      }
+  
+      let e = 0;
+        for(const item of newArray)
+        {
+          e += item.price
+        }
+     
+      return (
+
+    <p> TOTALPRIS: {e}</p> 
     );
   };
   export default MoviePriceTotal;

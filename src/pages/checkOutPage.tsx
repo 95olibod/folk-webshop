@@ -20,12 +20,9 @@ const CheckoutPage = () => {
       {AddedMoviesList.map((movie) => (
         <MovieCheckoutCard key={movie.id} movie={movie} />
         ))};
-         {AddedMoviesList.map((movie) => (
-        <MoviePriceTotal key={movie.id} movie={movie} />
-        ))};
-        
-       
-     
+       <div style={{color: "red"}}>
+      <MoviePriceTotal/>
+    </div>    
     </div>
   );
 };
