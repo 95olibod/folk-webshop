@@ -3,7 +3,7 @@ import { useContext } from "react";
 import MovieCheckoutCard from "../components/movie/movieCheckoutCard";
 import { MovieData, movies } from "../components/movie/movie";
 import MoviePriceTotal from "../components/movie/moviePriceTotal";
-import CustomerForm from "../components/form/custumerForm";
+import CustomerForm from "../components/form/customerForm";
 
 
 interface Props {
