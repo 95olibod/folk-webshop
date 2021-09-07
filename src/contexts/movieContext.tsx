@@ -3,22 +3,33 @@ import { createContext, FC, useEffect, useState } from "react";
 interface ContextValue {
   addedMovies: number[];
   toggleAddedMovies: (id: number) => void;
+  decreaseAddedMovies: (id: number) => void;
   deleteFromAddedMovies: (id: number) => void;
 }
 
 export const MovieContext = createContext<ContextValue>({
   addedMovies: [],
   toggleAddedMovies: () => {},
+  decreaseAddedMovies: () => {},
   deleteFromAddedMovies: () => {},
 });
 
 const MovieProvider: FC = (props) => {
   const [addedMovies, setAddedMovies] = useState<number[]>(
-      JSON.parse(localStorage.getItem("addedMovies") || "[]")
-    );
+    JSON.parse(localStorage.getItem("addedMovies") || "[]")
+  );
 
   const toggleAddedMovies = (id: number) => {
-    setAddedMovies([...addedMovies, id]);
+      setAddedMovies([...addedMovies, id]);
+  };
+
+  const decreaseAddedMovies = (id: number) => {
+
+      const indexOfMovieToRemove = addedMovies.findIndex(
+        (imageId) => imageId === id
+      );
+      addedMovies.splice(indexOfMovieToRemove, 1);
+      setAddedMovies([...addedMovies]);
   };
 
   const deleteFromAddedMovies = (id: number) => {
@@ -35,7 +46,8 @@ const MovieProvider: FC = (props) => {
       value={{
         addedMovies,
         toggleAddedMovies,
-        deleteFromAddedMovies
+        decreaseAddedMovies,
+        deleteFromAddedMovies,
       }}
     >
       {props.children}
