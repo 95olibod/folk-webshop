@@ -1,6 +1,5 @@
 import { createStyles, makeStyles, Theme } from "@material-ui/core";
 import ButtonBase from "@material-ui/core/ButtonBase";
-import Fab from "@material-ui/core/Fab";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";

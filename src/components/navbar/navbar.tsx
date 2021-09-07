@@ -1,15 +1,15 @@
 import React from "react";
-import './navbar.css';
-import CartButton from './shoppingcart-btn/cartButton';
-
+import HomeLogoButton from "./homeLogoButton";
+import "./navbar.css";
+import CartButton from "./shoppingcart-btn/cartButton";
 
 const Navbar = () => {
-
-    return (
-        <nav className= "navbar">
-             <CartButton/>
-        </nav>  
-    );
-}
+  return (
+    <nav className="navbar">
+      <HomeLogoButton /> 
+      <CartButton />
+    </nav>
+  );
+};
 
 export default Navbar;

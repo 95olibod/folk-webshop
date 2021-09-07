@@ -1,4 +1,4 @@
-import React, {FC, MouseEventHandler, CSSProperties} from "react";
+import React, {CSSProperties} from "react";
 import './cartButton.css';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import { Link } from "react-router-dom";
