@@ -1,20 +1,16 @@
-import Button from "./button/button";
-import { MovieData } from "./movie";
-import "./movie.css";
-import React, { FC } from "react";
-import { useContext } from "react";
-import { MovieContext } from "../../contexts/movieContext";
-import DeleteButton from "../movie/button/deleteButton";
-
+import { createStyles, makeStyles, Theme } from "@material-ui/core";
+import ButtonBase from "@material-ui/core/ButtonBase";
+import Fab from "@material-ui/core/Fab";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
-import ButtonBase from "@material-ui/core/ButtonBase";
-import { makeStyles, Theme, createStyles } from "@material-ui/core";
-import Fab from "@material-ui/core/Fab";
 import AddIcon from "@material-ui/icons/Add";
-import RemoveIcon from "@material-ui/icons/Remove";
-
+import React, { FC, useContext } from "react";
+import { MovieContext } from "../../contexts/movieContext";
+import DeleteButton from "../movie/button/deleteButton";
+import DecreaseButton from "./button/decreaseButton";
+import { MovieData } from "./movie";
+import "./movie.css";
 
 
 interface Props {
@@ -52,19 +48,16 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-
 const MovieCheckoutCard: FC<Props> = ({ movie }) => {
   const classes = useStyles();
-  const { addedMovies, toggleAddedMovies, deleteFromAddedMovies } = useContext(MovieContext);
+  const {
+    addedMovies,
+    toggleAddedMovies,
+    decreaseAddedMovies,
+    deleteFromAddedMovies,
+  } = useContext(MovieContext);
 
   const count = addedMovies.filter((obj) => obj === movie.id).length;
-  console.log(count);
-
-  //  const delsumma = movie.price * count;
-  //  summa = delsumma + summa;
-  //  console.log(movie.price * count);
-
-  //  console.log(summa);
 
   return (
     <div className={classes.root}>
@@ -89,15 +82,16 @@ const MovieCheckoutCard: FC<Props> = ({ movie }) => {
 
               <div className="flex row space-between">
                 <div className="flex row">
-                  <Fab color="default" size="small" aria-label="remove">
-                    <RemoveIcon />
-                  </Fab>
+                  <DecreaseButton
+                    movie={movie}
+                    onClick={() => decreaseAddedMovies(movie.id)}
+                  />
                   <p>{count}</p>
                   <Fab color="primary" size="small" aria-label="add">
                     <AddIcon />
                   </Fab>
                 </div>
-                <DeleteButton onClick={() =>  deleteFromAddedMovies(movie.id)}/>
+                <DeleteButton onClick={() => deleteFromAddedMovies(movie.id)} />
               </div>
             </Grid>
             <Grid item>
@@ -111,24 +105,3 @@ const MovieCheckoutCard: FC<Props> = ({ movie }) => {
 };
 
 export default MovieCheckoutCard;
-
-/*
-const MovieCheckoutCard: FC<Props> = ({ movie }) => {
-  const { toggleAddedMovies } = useContext(MovieContext);
-
-  return (
-    <div className="movie-checkout-card">
-      <img
-        className="checkout-image"
-        key={movie.id}
-        src={movie.imageUrl}
-        alt=""
-      />
-      <p>{movie.price}</p>
-      <p>{movie.title}</p>
-    </div>
-  );
-};
-
-export default MovieCheckoutCard;
-*/
