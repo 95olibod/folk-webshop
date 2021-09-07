@@ -4,6 +4,7 @@ import "./movie.css";
 import React, { FC } from "react";
 import { useContext } from "react";
 import { MovieContext } from "../../contexts/movieContext";
+import DeleteButton from "../movie/button/deleteButton";
 
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
@@ -13,8 +14,7 @@ import { makeStyles, Theme, createStyles } from "@material-ui/core";
 import Fab from "@material-ui/core/Fab";
 import AddIcon from "@material-ui/icons/Add";
 import RemoveIcon from "@material-ui/icons/Remove";
-import DeleteIcon from "@material-ui/icons/Delete";
-import IconButton from "@material-ui/core/IconButton";
+
 
 
 interface Props {
@@ -55,7 +55,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const MovieCheckoutCard: FC<Props> = ({ movie }) => {
   const classes = useStyles();
-  const { addedMovies } = useContext(MovieContext);
+  const { addedMovies, toggleAddedMovies, deleteFromAddedMovies } = useContext(MovieContext);
 
   const count = addedMovies.filter((obj) => obj === movie.id).length;
   console.log(count);
@@ -97,13 +97,7 @@ const MovieCheckoutCard: FC<Props> = ({ movie }) => {
                     <AddIcon />
                   </Fab>
                 </div>
-                <div>
-                  <Grid item>
-                    <IconButton aria-label="delete">
-                      <DeleteIcon />
-                    </IconButton>
-                  </Grid>
-                </div>
+                <DeleteButton onClick={() =>  deleteFromAddedMovies(movie.id)}/>
               </div>
             </Grid>
             <Grid item>
