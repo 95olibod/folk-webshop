@@ -25,7 +25,8 @@ const logoStyle: CSSProperties = {
   border: "none",
   background: "transparent",
   display: "flex",
-  flexDirection: "row"
+  flexDirection: "row",
+  cursor: "pointer"
 };
 const rootStyle: CSSProperties = {
   display: "flex",
@@ -40,7 +41,7 @@ const textStyle: CSSProperties = {
 };
 
 const noStyle: CSSProperties = {
- textDecoration: "none"
+ textDecoration: "none",
  
 };
 export default HomeLogoButton;
