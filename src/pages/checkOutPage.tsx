@@ -3,6 +3,8 @@ import { useContext } from "react";
 import MovieCheckoutCard from "../components/movie/movieCheckoutCard";
 import { MovieData, movies } from "../components/movie/movie";
 import MoviePriceTotal from "../components/movie/moviePriceTotal";
+import CustomerForm from "../components/form/customerForm";
+
 
 interface Props {
   movie: MovieData;
@@ -23,6 +25,7 @@ const CheckoutPage = () => {
        <div style={{color: "red"}}>
       <MoviePriceTotal/>
     </div>    
+    <CustomerForm/>
     </div>
   );
 };
