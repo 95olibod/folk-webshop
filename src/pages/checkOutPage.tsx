@@ -4,7 +4,7 @@ import MovieCheckoutCard from "../components/movie/movieCheckoutCard";
 import { MovieData, movies } from "../components/movie/movie";
 import MoviePriceTotal from "../components/movie/moviePriceTotal";
 import CustomerForm from "../components/form/customerForm";
-
+import "../pages/pages.css";
 
 interface Props {
   movie: MovieData;
@@ -19,13 +19,20 @@ const CheckoutPage = () => {
 
   return (
     <div>
-      {AddedMoviesList.map((movie) => (
-        <MovieCheckoutCard key={movie.id} movie={movie} />
-        ))};
-       <div style={{color: "red"}}>
-      <MoviePriceTotal/>
-    </div>    
-    <CustomerForm/>
+      <div className="checkout-container">
+        <div className="movie-papers">
+          {AddedMoviesList.map((movie) => (
+            <MovieCheckoutCard key={movie.id} movie={movie} />
+          ))}
+          ;
+        </div>
+
+        <CustomerForm />
+      </div>
+
+      <div style={{ color: "red" }}>
+        <MoviePriceTotal />
+      </div>
     </div>
   );
 };
