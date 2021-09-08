@@ -1,23 +1,25 @@
-import { MovieContext } from "../contexts/movieContext";
-import { useContext } from "react";
 import MovieDetailCard from "../components/movie/movieDetailCard";
-import { movies } from "../components/movie/movie";
+import { MovieData, movies } from "../components/movie/movie";
+import { RouteComponentProps } from "react-router-dom";
 
-const DetailsPage = () => {
-  const { addedMovies } = useContext(MovieContext);
+interface Props {
+    movie: MovieData;
+}
 
-  //CHANGE FROM ADDEDMOVIES TO MOVIE ARRAY IN MOVIE.ts
-  const AddedMoviesList = movies.filter((movie) =>
-    addedMovies.includes(movie.id)
-  );
+interface Props extends RouteComponentProps<{ id: string }> {}
 
-  return (
-    <div>
-      {AddedMoviesList.map((movie) => (
-        <MovieDetailCard key={movie.id} movie={movie} />
-      ))}
-    </div>
-  );
+const DetailsPage = ({ match }: Props) => {
+    const id = parseInt(match.params.id);
+    const movieItem = movies.filter((movieItem) => movieItem.id === id);
+
+    return (
+        <div>
+            {movieItem.map((movie) => (
+                <MovieDetailCard key={movie.id} movie={movie} />
+            ))}
+            ;
+        </div>
+    );
 };
 
 export default DetailsPage;

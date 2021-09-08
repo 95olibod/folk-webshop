@@ -1,4 +1,3 @@
-import React from "react";
 import Header from "../header/header";
 import Navbar from "../navbar/navbar";
 import { Route, Switch } from "react-router-dom";
@@ -14,7 +13,7 @@ function Layout() {
       <Header />
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route path="/details" component={DetailsPage} />
+        <Route path="/details/:id" component={DetailsPage} />
         <Route path="/checkout" component={CheckoutPage} />
         <Route path="/confirm" component={ConfirmationPage} />
       </Switch>
