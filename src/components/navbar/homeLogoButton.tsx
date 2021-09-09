@@ -20,7 +20,6 @@ const HomeLogoButton = () => {
 
 const logoStyle: CSSProperties = {
   objectFit: "cover",
-  width: "100%",
   height: "100%",
   border: "none",
   background: "transparent",

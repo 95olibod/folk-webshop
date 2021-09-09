@@ -1,7 +1,6 @@
 .checkout-container {
     display: flex;
     flex-direction: row;
-    /* align-items: center; */
     justify-content: center;
 }
 
@@ -9,4 +8,19 @@
     display: flex;
     flex-direction: column;
     margin-right: 6rem;
+}
+
+.movieContainer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    background: #02060f;
+    justify-content: center;
+    max-width: 1430px;
+}
+
+.outerDiv {
+    background: #02060f;
+    display: flex;
+    justify-content: center;
 }
