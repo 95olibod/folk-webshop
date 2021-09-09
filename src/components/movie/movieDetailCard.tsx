@@ -1,7 +1,7 @@
 import { MovieData } from "./movie";
 import "./movie.css";
-import { FC, useContext } from "react";
-import { createStyles, makeStyles, Paper, Theme } from "@material-ui/core";
+import { FC, useContext, useState } from "react";
+import { createStyles, makeStyles, Paper, Snackbar, Theme } from "@material-ui/core";
 import { MovieContext } from "../../contexts/movieContext";
 import Button from "./button/button";
 
@@ -35,6 +35,15 @@ const MovieDetailCard: FC<Props> = ({ movie }) => {
 
     const { toggleAddedMovies } = useContext(MovieContext);
 
+    const [isSnackbarOpen, setIsSnackbarOpen] = useState(false);
+
+    const handleClick = (movie: MovieData) => {
+        toggleAddedMovies(movie.id);
+        setIsSnackbarOpen(true);
+    };
+
+    const hideSnackbar = () => setIsSnackbarOpen(false);
+
     return (
         <Paper className={classes.paper}>
             <div className="top-container">
@@ -60,8 +69,15 @@ const MovieDetailCard: FC<Props> = ({ movie }) => {
             <h3 className="details-h3">Handling</h3>
             <p className="storyline-p">{movie.storyline}</p>
             <div className="flex jus-center">
-                <Button onClick={() => toggleAddedMovies(movie.id)}></Button>
+            <Button onClick={() => handleClick(movie)} />  
             </div>
+            <Snackbar
+                anchorOrigin={{ vertical: "top", horizontal: "right" }}
+                open={isSnackbarOpen}
+                autoHideDuration={3000}
+                onClose={hideSnackbar}
+                message="Produkten tillagd i varukorg"
+            />
         </Paper>
     );
 };
