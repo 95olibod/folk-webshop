@@ -23,8 +23,7 @@ const CheckoutPage = () => {
         <div className="movie-papers">
           {AddedMoviesList.map((movie) => (
             <MovieCheckoutCard key={movie.id} movie={movie} />
-          ))}
-          ;
+          ))}          
         </div>
 
         <CustomerForm />
