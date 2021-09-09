@@ -22,16 +22,11 @@
 }
 
 .movie-homepage-card {
-    display: flex;
+     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    color: white;
-    background-color: gray;
-    width: 20rem;
-    margin-top: 1rem;
-    margin-left: 1rem;
 }
 
 .movie-details-card {
@@ -63,6 +58,7 @@
 .homepage-image {
     width: 15rem;
     cursor: pointer;
+    height: 22rem;
 }
 
 .details-image {
@@ -72,6 +68,7 @@
 .checkout-image {
     width: 2.5rem;
 }
+
 /*------------------------MOVIE DETAILS-----------------------------*/
 
 .root {
@@ -80,7 +77,6 @@
 
 .details-image {
     width: 13rem;
-    height: 16rem;
     
 }
 
