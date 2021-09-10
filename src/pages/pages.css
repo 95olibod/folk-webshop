@@ -1,12 +1,15 @@
-.checkout-container {
+/* .checkout-container {
     display: flex;
     flex-direction: row;
-    /* align-items: center; */
     justify-content: center;
-}
+} */
 
-.movie-papers {
+/* .movie-papers {
     display: flex;
     flex-direction: column;
     margin-right: 6rem;
+} */
+
+.color {
+    color: white;
 }

@@ -1,23 +1,11 @@
 import { Grid } from "@material-ui/core";
-import Paper from "@material-ui/core/Paper";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
-import React from "react";
 import "./customerForm.css";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: "flex",
-    flexWrap: "wrap",
-    alignItems: "center",
-    justifyContent: "space-between",
-  },
-  paper: {
-    alignItems: "center",
-    padding: theme.spacing(2),
-    margin: "auto",
-    maxWidth: 530,
-    marginBottom: "3rem",
+    flexGrow: 1,
   },
   margin: {
     margin: theme.spacing(1),
@@ -47,11 +35,9 @@ const CustomerForm = () => {
   const classes = useStyles();
 
   return (
-    <div>
-      <Paper className={classes.paper}>
-        <h4>Dina uppgifter</h4>
-
-        <form className={classes.root} noValidate autoComplete="on">
+      <Grid item container xs={12}>
+        <Grid item xs={12}>
+        <form noValidate autoComplete="on">
           <ValidationTextField
             className={classes.margin}
             label="För- & Efternamn"
@@ -110,8 +96,8 @@ const CustomerForm = () => {
             autoComplete="tel"
           />
         </form>
-      </Paper>
-    </div>
+        </Grid>
+      </Grid>
   );
 };
 

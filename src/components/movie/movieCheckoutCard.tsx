@@ -1,35 +1,22 @@
-import { createStyles, makeStyles, Theme } from "@material-ui/core";
-import ButtonBase from "@material-ui/core/ButtonBase";
+import { createStyles, makeStyles } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
-import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
-import React, { FC, useContext } from "react";
+import { FC, useContext } from "react";
 import { MovieContext } from "../../contexts/movieContext";
 import DeleteButton from "../movie/button/deleteButton";
-import DecreaseButton from "./button/decreaseButton";
-import IncreaseButton from "./button/increaseButton";
 import { MovieData } from "./movie";
 import "./movie.css";
-
+import QuantityAdjuster from "./quantityAdjuster";
 
 interface Props {
   movie: MovieData;
 }
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles(() =>
   createStyles({
-    root: {
-      flexGrow: 1,
-    },
-    paper: {
-      padding: theme.spacing(2),
-      margin: "auto",
-      marginBottom: ".2rem",
-      maxWidth: 500,
-    },
     image: {
       width: 200,
-      height: 200,
+      heigth: "auto",
     },
     img: {
       margin: "auto",
@@ -37,67 +24,39 @@ const useStyles = makeStyles((theme: Theme) =>
       maxWidth: "100%",
       maxHeight: "100%",
     },
-    buttSize: {
-      width: 30,
-      height: 30,
-    },
     font: {
       fontWeight: 800,
+    },
+    typography: {
+      textAlign: "center",
     },
   })
 );
 
 const MovieCheckoutCard: FC<Props> = ({ movie }) => {
   const classes = useStyles();
-  const {
-    addedMovies,
-    toggleAddedMovies,
-    decreaseAddedMovies,
-    deleteFromAddedMovies,
-  } = useContext(MovieContext);
-
-  const count = addedMovies.filter((obj) => obj === movie.id).length;
+  const { deleteFromAddedMovies } = useContext(MovieContext);
 
   return (
-    <div className={classes.root}>
-      <Paper className={classes.paper}>
-        <Grid container spacing={2}>
-          <Grid item>
-            <ButtonBase className={classes.image}>
-              <img className={classes.img} alt="complex" src={movie.imageUrl} />
-            </ButtonBase>
-          </Grid>
-          <Grid item xs={12} sm container>
-            <Grid item xs container direction="column" spacing={2}>
-              <Grid item xs>
-                <Typography
-                  gutterBottom
-                  variant="subtitle1"
-                  className={classes.font}
-                >
-                  {movie.title}
-                </Typography>
-              </Grid>
-
-              <div className="flex row space-between">
-                <div className="flex row">
-                  <DecreaseButton
-                    movie={movie}
-                    onClick={() => decreaseAddedMovies(movie.id)}
-                  />
-                  <p>{count}</p>
-                  <IncreaseButton onClick={() => toggleAddedMovies(movie.id)}/>
-                </div>
-                <DeleteButton onClick={() => deleteFromAddedMovies(movie.id)} />
-              </div>
-            </Grid>
-            <Grid item>
-              <Typography variant="subtitle1">{movie.price} kr</Typography>
-            </Grid>
-          </Grid>
+    <Grid container xs={12} spacing={3}>
+      <Grid item container xs={6} sm={4} spacing={2}>
+        <Grid item xs={12} className={classes.image}>
+          <img className={classes.img} alt="complex" src={movie.imageUrl} />
         </Grid>
-      </Paper>
-    </div>
+      </Grid>
+      <Grid item container xs={12} sm={8} spacing={0}>
+        <Grid item xs={11}>
+          <Typography variant="subtitle1">{movie.title}</Typography>
+          <Typography variant="subtitle2">{movie.price} SEK</Typography>
+        </Grid>
+        <Grid item xs={1}>
+          <DeleteButton onClick={() => deleteFromAddedMovies(movie.id)} />
+        </Grid>
+        <Grid item container xs={12} alignItems="center">
+          <QuantityAdjuster movie={movie} />
+        </Grid>
+      </Grid>
+    </Grid>
   );
 };
 
