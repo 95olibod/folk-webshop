@@ -21,6 +21,22 @@
     justify-content: center;
 }
 
+.space-around {
+    justify-content: space-around;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.justify-center {
+    align-items: center;
+}
+
+.padding-typo {
+    padding: 1rem;
+}
+
 .movie-homepage-card {
      display: flex;
     flex-direction: column;

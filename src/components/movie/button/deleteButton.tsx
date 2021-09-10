@@ -1,7 +1,5 @@
 import React, { FC, MouseEventHandler } from "react";
-
-import Grid from "@material-ui/core/Grid";
-import DeleteIcon from "@material-ui/icons/Delete";
+import DeleteForeverOutlinedIcon from "@material-ui/icons/DeleteForeverOutlined";
 import IconButton from "@material-ui/core/IconButton";
 
 
@@ -12,13 +10,10 @@ interface Props {
 const DeleteButton: FC<Props> = ({ onClick }) => {
   return (
     <div>
-    <Grid item>
       <IconButton aria-label="delete" onClick={onClick}>
-        <DeleteIcon />
+        <DeleteForeverOutlinedIcon />
       </IconButton>
-    </Grid>
-  </div>
-    
+    </div>
   );
 };
 

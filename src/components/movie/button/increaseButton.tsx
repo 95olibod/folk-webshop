@@ -8,7 +8,7 @@ interface Props {
 
 const IncreaseButton: FC<Props> = ({ onClick }) => {
   return (
-    <Fab color="primary" size="small" aria-label="add" onClick={onClick}>
+    <Fab color="default" size="small" aria-label="add" onClick={onClick}>
       <AddIcon />
     </Fab>
   );
