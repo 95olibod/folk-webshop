@@ -3,6 +3,7 @@ import SubmitCheckoutButton from "./button/submitCheckoutButton";
 import MoviePriceTotal from "./moviePriceTotal";
 
 const TotalAndSubmitCard = () => {
+
   return (
     <Grid container xs={12}>
       <Grid item container xs={6}>
