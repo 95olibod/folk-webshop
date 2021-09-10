@@ -3,12 +3,13 @@ import {
   Grid,
   makeStyles,
   Paper,
-  Theme
+  Theme,
 } from "@material-ui/core";
 import { useContext } from "react";
 import CustomerForm from "../components/form/customerForm";
 import { movies } from "../components/movie/movie";
 import MovieCheckoutCard from "../components/movie/movieCheckoutCard";
+import MovieCheckoutCardTitle from "../components/movie/movieCheckoutCardTitle";
 import TotalAndSubmitCard from "../components/movie/totalAndSubmitCard";
 import { MovieContext } from "../contexts/movieContext";
 import "../pages/pages.css";
@@ -23,7 +24,7 @@ const useStyles = makeStyles((theme: Theme) =>
       margin: "auto",
       marginTop: 0,
       marginBottom: "0.2rem",
-      marginRight: "0.2rem"
+      marginRight: "0.2rem",
     },
   })
 );
@@ -36,11 +37,14 @@ const CheckoutPage = () => {
     addedMovies.includes(movie.id)
   );
 
-  return (
+  const count = addedMovies.length;
+
+  if (count !== 0) {
+    return (
       <Grid container xs={12} spacing={0} justifyContent="center">
         <Grid item xs={9} sm={8} md={5}>
           <Paper className={classes.paper}>
-            <h4>Kundkorg</h4>
+            <MovieCheckoutCardTitle />
             {AddedMoviesList.map((movie) => (
               <MovieCheckoutCard key={movie.id} movie={movie} />
             ))}
@@ -56,7 +60,21 @@ const CheckoutPage = () => {
           </Paper>
         </Grid>
       </Grid>
-  );
+    );
+  } else {
+    return (
+      <Grid container xs={12} spacing={0} justifyContent="center">
+        <Grid item xs={9} sm={8} md={5}>
+          <Paper className={classes.paper}>
+            <MovieCheckoutCardTitle />
+            {AddedMoviesList.map((movie) => (
+              <MovieCheckoutCard key={movie.id} movie={movie} />
+            ))}
+          </Paper>
+        </Grid>
+      </Grid>
+    );
+  }
 };
 
 export default CheckoutPage;
