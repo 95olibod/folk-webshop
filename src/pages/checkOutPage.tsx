@@ -37,7 +37,6 @@ const CheckoutPage = () => {
   );
 
   return (
-    <div>
       <Grid container xs={12} spacing={0} justifyContent="center">
         <Grid item xs={9} sm={8} md={5}>
           <Paper className={classes.paper}>
@@ -57,7 +56,6 @@ const CheckoutPage = () => {
           </Paper>
         </Grid>
       </Grid>
-    </div>
   );
 };
 

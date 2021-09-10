@@ -13,3 +13,18 @@
 .color {
     color: white;
 }
+
+.movieContainer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    background: #02060f;
+    justify-content: center;
+    max-width: 1430px;
+}
+
+.outerDiv {
+    background: #02060f;
+    display: flex;
+    justify-content: center;
+}
