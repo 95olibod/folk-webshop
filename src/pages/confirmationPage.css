@@ -1,0 +1,39 @@
+.confirmationContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  position: absolute;
+  top: 6rem;
+}
+
+.confirmText {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  margin: 0.5rem;
+}
+
+.confirmationInformationContainer {
+  display: flex;
+  background-color: white;
+  flex-grow: 1;
+  max-width: 40rem;
+  border-radius: 4px;
+}
+
+.table {
+  display: flex;
+  flex-grow: 1;
+  max-width: 40rem;
+  margin-top: 0.5rem;
+}
+
+.totalBold {
+  font-weight: bold;
+}
+
+.padding {
+  padding: 0.5rem;
+}
