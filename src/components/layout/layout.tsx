@@ -15,7 +15,7 @@ function Layout() {
         <Route exact path="/" component={HomePage} />
         <Route path="/details/:id" component={DetailsPage} />
         <Route path="/checkout" component={CheckoutPage} />
-        <Route path="/confirm" component={ConfirmationPage} />
+        <Route path="/confirmation" component={ConfirmationPage} />
       </Switch>
     </div>
   );
