@@ -25,7 +25,8 @@ const logoStyle: CSSProperties = {
   background: "transparent",
   display: "flex",
   flexDirection: "row",
-  cursor: "pointer"
+  cursor: "pointer",
+  alignItems: "center"
 };
 const rootStyle: CSSProperties = {
   display: "flex",
