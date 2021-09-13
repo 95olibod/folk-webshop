@@ -1,4 +1,4 @@
-import { CSSProperties, useContext } from "react";
+import { useContext } from "react";
 import { MovieData, movies } from "../components/movie/movie";
 import { MovieContext } from "../contexts/movieContext";
 import Table from "@material-ui/core/Table";
@@ -8,6 +8,7 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
+import "./confirmationPage.css";
 
 const ConfirmationPage = () => {
   const { addedMovies } = useContext(MovieContext);
@@ -45,15 +46,15 @@ const ConfirmationPage = () => {
     .reduce((sum: number, i: number) => sum + i, 0);
 
   return (
-    <div style={confirmationContainer}>
-      <div style={padding}>
-        <div style={confirmationInformationContainer}>
-          <p style={confirmText}>
+    <div className="confirmationContainer">
+      <div className="padding">
+        <div className="confirmationInformationContainer">
+          <p className="confirmText">
             Tack för din order! Vi har skickat en orderbekräftelse till
             kalle.hansson.blomberg@hotmail.com
           </p>
         </div>
-        <TableContainer style={table} component={Paper}>
+        <TableContainer className="table" component={Paper}>
           <Table aria-label="spanning table">
             <TableHead>
               <TableRow>
@@ -79,14 +80,14 @@ const ConfirmationPage = () => {
             </TableBody>
           </Table>
         </TableContainer>
-        <TableContainer style={table} component={Paper}>
+        <TableContainer className="table" component={Paper}>
           <Table aria-label="spanning table">
             <TableBody>
               <TableRow>
-                <TableCell style={totalBold} colSpan={3}>
+                <TableCell className="totalBold" colSpan={3}>
                   Totalsumma
                 </TableCell>
-                <TableCell style={totalBold} align="right">
+                <TableCell className="totalBold" align="right">
                   {subtotal} kronor
                 </TableCell>
               </TableRow>
@@ -97,44 +98,4 @@ const ConfirmationPage = () => {
     </div>
   );
 };
-
-const confirmationContainer: CSSProperties = {
-  width: "100%",
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  marginBottom: "0.5rem",
-  position: "absolute",
-  top: "6rem",
-};
-const confirmText: CSSProperties = {
-  display: "flex",
-  flexWrap: "wrap",
-  textAlign: "center",
-  margin: "0.5rem",
-};
-
-const confirmationInformationContainer: CSSProperties = {
-  display: "flex",
-  backgroundColor: "white",
-  flexGrow: 1,
-  maxWidth: "40rem",
-  borderRadius: "4px",
-};
-
-const table: CSSProperties = {
-  display: "flex",
-  flexGrow: 1,
-  maxWidth: "40rem",
-  marginTop: "0.5rem",
-};
-
-const totalBold: CSSProperties = {
-  fontWeight: "bold",
-};
-
-const padding: CSSProperties = {
-  padding: "0.5rem",
-};
-
 export default ConfirmationPage;
