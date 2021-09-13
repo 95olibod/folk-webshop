@@ -21,6 +21,10 @@
     justify-content: center;
 }
 
+.jus-evenly{
+    justify-content: space-evenly;
+}
+
 .space-around {
     justify-content: space-around;
 }
@@ -132,6 +136,10 @@
 .details-image-box {
     display: flex;
     justify-content: center;
+}
+
+.noTextDecoration{
+    text-decoration: none;
 }
 
 /* Media queries */
