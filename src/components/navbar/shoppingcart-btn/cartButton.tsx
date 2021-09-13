@@ -8,7 +8,7 @@ const CartButton = () => {
     return (
         <button className= "cart-btn" >
             <Link to="/checkout" style={noLinkStyle}>
-            <ShoppingCartIcon className= "shoppingcart" fontSize="small" ></ShoppingCartIcon>
+            <ShoppingCartIcon className= "shoppingcart" fontSize="medium" ></ShoppingCartIcon>
             </Link>
         </button>
         
