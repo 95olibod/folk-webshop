@@ -1,9 +1,13 @@
 import { Grid } from "@material-ui/core";
+import { FC } from "react";
 import SubmitCheckoutButton from "./button/submitCheckoutButton";
 import MoviePriceTotal from "./moviePriceTotal";
 
-const TotalAndSubmitCard = () => {
+interface props {
+  buttonIsDisabled: boolean | "";
+}
 
+const TotalAndSubmitCard: FC<props> = ({ buttonIsDisabled }) => {
   return (
     <Grid container xs={12}>
       <Grid item container xs={6}>
@@ -12,7 +16,7 @@ const TotalAndSubmitCard = () => {
         </Grid>
       </Grid>
       <Grid item xs={12}>
-        <SubmitCheckoutButton />
+        <SubmitCheckoutButton isDisabled={buttonIsDisabled} />
       </Grid>
     </Grid>
   );

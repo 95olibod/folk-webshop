@@ -10,15 +10,10 @@ import CustomerForm from "../components/form/customerForm";
 import { movies } from "../components/movie/movie";
 import MovieCheckoutCard from "../components/movie/movieCheckoutCard";
 import MovieCheckoutCardTitle from "../components/movie/movieCheckoutCardTitle";
-import TotalAndSubmitCard from "../components/movie/totalAndSubmitCard";
 import { MovieContext } from "../contexts/movieContext";
-import "../pages/pages.css";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    root: {
-      flexGrow: 1,
-    },
     paper: {
       padding: theme.spacing(2),
       margin: "auto",
@@ -51,13 +46,7 @@ const CheckoutPage = () => {
           </Paper>
         </Grid>
         <Grid item xs={9} sm={8} md={5}>
-          <Paper className={classes.paper}>
-            <h4>Dina uppgifter</h4>
-            <CustomerForm />
-          </Paper>
-          <Paper className={classes.paper}>
-            <TotalAndSubmitCard />
-          </Paper>
+          <CustomerForm />
         </Grid>
       </Grid>
     );
