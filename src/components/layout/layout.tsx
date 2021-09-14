@@ -16,6 +16,7 @@ function Layout() {
         <Route path="/details/:id" component={DetailsPage} />
         <Route path="/checkout" component={CheckoutPage} />
         <Route path="/confirmation" component={ConfirmationPage} />
+        <Route component={HomePage} />
       </Switch>
     </div>
   );

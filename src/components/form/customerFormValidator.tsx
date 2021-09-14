@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const defaultFormValues = {
   name: "",
@@ -14,6 +14,19 @@ const defaultFormValues = {
 export const CustomerFormValidator = () => {
   const [values, setValues] = useState(defaultFormValues);
   const [errors, setErrors] = useState({} as any);
+
+
+  const [userData, setUserData] = useState<string[]>(
+    JSON.parse(localStorage.getItem("userData") || "[]")
+  );
+  
+  useEffect(() => {
+    localStorage.setItem("userData", JSON.stringify(userData));
+  }, [userData]);
+  
+  const toggleUserData = (userEmail: string) => {   
+    setUserData([userEmail]);
+  };
 
   const validate: any = (fieldValues = values) => {
     let temp: any = { ...errors };
@@ -62,9 +75,11 @@ export const CustomerFormValidator = () => {
       temp.email = fieldValues.email ? "" : "Obligatorisk.";
       if (fieldValues.email) {
         temp.email = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(fieldValues.email)
-          ? ""
-          : "Ogiltig adress.";
+        ? ""
+        : "Ogiltig adress.";
       }
+      toggleUserData(fieldValues.email)
+
     }
 
     if ("mobile" in fieldValues) {
@@ -89,10 +104,6 @@ export const CustomerFormValidator = () => {
     validate({ [name]: value });
   };
 
-  const handleFormSubmit = (e: any) => {
-    e.preventDefault();
-  };
-
   const formIsValid = (fieldValues = values) => {
     const isValid =
       fieldValues.name &&
@@ -108,7 +119,6 @@ export const CustomerFormValidator = () => {
 
   return {
     handleInputValue,
-    handleFormSubmit,
     formIsValid,
     errors,
   };
