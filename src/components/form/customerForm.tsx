@@ -1,14 +1,20 @@
-import { Grid } from "@material-ui/core";
+import { Grid, Paper } from "@material-ui/core";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
-import "./customerForm.css";
+import TotalAndSubmitCard from "../movie/totalAndSubmitCard";
+import { CustomerFormValidator } from "./customerFormValidator";
+import { inputFieldValues } from "./defaultFieldValues";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
   margin: {
     margin: theme.spacing(1),
+  },
+  paper: {
+    padding: theme.spacing(2),
+    margin: "auto",
+    marginTop: 0,
+    marginBottom: "0.2rem",
+    marginRight: "0.2rem",
   },
 }));
 
@@ -24,7 +30,7 @@ const ValidationTextField = withStyles({
     },
     "& input:valid:focus + fieldset": {
       borderLeftWidth: 6,
-      padding: "4px !important", // override inline-style
+      padding: "4px !important",
     },
 
     background: "white",
@@ -34,70 +40,42 @@ const ValidationTextField = withStyles({
 const CustomerForm = () => {
   const classes = useStyles();
 
+  const { handleInputValue, handleFormSubmit, formIsValid, errors } =
+    CustomerFormValidator();
+
   return (
-      <Grid item container xs={12}>
-        <Grid item xs={12}>
-        <form noValidate autoComplete="on">
-          <ValidationTextField
-            className={classes.margin}
-            label="För- & Efternamn"
-            name="name"
-            required
-            variant="outlined"
-            id="validation-outlined-input"
-            autoComplete="name"
-          />
-
-          <ValidationTextField
-            className={classes.margin}
-            label="Adress"
-            name="ship-address"
-            required
-            variant="outlined"
-            id="validation-outlined-input"
-            autoComplete="shipping street-address"
-          />
-
-          <ValidationTextField
-            className={classes.margin}
-            label="Postnummer"
-            name="ship-zip"
-            required
-            variant="outlined"
-            id="validation-outlined-input"
-            autoComplete="shipping postal-code"
-          />
-          <ValidationTextField
-            className={classes.margin}
-            label="Stad"
-            name="ship-city"
-            required
-            variant="outlined"
-            id="validation-outlined-input"
-            autoComplete="shipping locality"
-          />
-          <ValidationTextField
-            className={classes.margin}
-            type="email"
-            label="Email"
-            name="email"
-            required
-            variant="outlined"
-            id="validation-outlined-input"
-            autoComplete="email"
-          />
-          <ValidationTextField
-            className={classes.margin}
-            label="Mobilnummer"
-            name="mobile"
-            required
-            variant="outlined"
-            id="validation-outlined-input"
-            autoComplete="tel"
-          />
-        </form>
-        </Grid>
+    <Grid item container xs={12}>
+      <Grid item xs={12}>
+        <Paper className={classes.paper}>
+          <h4>Dina uppgifter</h4>
+          <form onSubmit={handleFormSubmit}>
+            {inputFieldValues.map((inputFieldValue, index) => {
+              return (
+                <ValidationTextField
+                  className={classes.margin}
+                  key={index}
+                  onBlur={handleInputValue}
+                  onChange={handleInputValue}
+                  label={inputFieldValue.label}
+                  name={inputFieldValue.name}
+                  type={inputFieldValue.type}
+                  placeholder={inputFieldValue.placeholder}
+                  autoComplete={inputFieldValue.autoComplete}
+                  required
+                  {...(errors[inputFieldValue.name] && {
+                    error: true,
+                    helperText: errors[inputFieldValue.name],
+                  })}
+                />
+              );
+            })}
+          </form>
+        </Paper>
+        <Paper className={classes.paper}>
+          <TotalAndSubmitCard buttonIsDisabled={formIsValid()} />
+        </Paper>
       </Grid>
+    </Grid>
   );
 };
 
