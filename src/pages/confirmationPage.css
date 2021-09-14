@@ -13,6 +13,9 @@
   flex-wrap: wrap;
   text-align: center;
   margin: 0.5rem;
+  /* display: inline-block; */
+  /* overflow-wrap: inherit; */
+  /* word-wrap: break-all; */
 }
 
 .confirmationInformationContainer {
@@ -21,13 +24,15 @@
   flex-grow: 1;
   max-width: 40rem;
   border-radius: 4px;
+  /* overflow-wrap: normal; */
+  /* overflow-wrap: break-word; */
 }
 
 .table {
   display: flex;
   flex-grow: 1;
   max-width: 40rem;
-  margin-top: 0.5rem;
+  margin-top: 0.2rem;
 }
 
 .totalBold {
@@ -35,5 +40,5 @@
 }
 
 .padding {
-  padding: 0.5rem;
+  padding: 0.5rem 1.5rem;
 }
