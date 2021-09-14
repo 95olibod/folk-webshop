@@ -9,6 +9,7 @@
     top: 0;
     background-size: contain;
     position: fixed;
+    z-index: 1;
 }
 
 @media (max-width: 1024px) {
