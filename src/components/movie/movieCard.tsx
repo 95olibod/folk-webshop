@@ -53,7 +53,7 @@ const MovieCard: FC<Props> = ({ movie}) => {
                     />
                 </Link>
                 <p>{movie.title}</p>
-                <p className="details-p">{movie.price} kr</p>
+                <p className="details-p">{movie.price} SEK</p>
             <Button onClick={() => handleClick(movie)} />  
             </div>                    
             <Snackbar

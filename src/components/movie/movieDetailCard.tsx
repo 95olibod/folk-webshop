@@ -63,7 +63,7 @@ const MovieDetailCard: FC<Props> = ({ movie }) => {
           <h3 className="details-h3">Speltid</h3>
           <p className="details-p">{movie.duration} min</p>
           <h3 className="details-h3">Pris</h3>
-          <p className="details-p"> {movie.price} kr</p>
+          <p className="details-p"> {movie.price} SEK</p>
         </div>
       </div>
       <h3 className="details-h3">Handling</h3>

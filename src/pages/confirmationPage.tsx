@@ -88,7 +88,7 @@ const ConfirmationPage = () => {
                   Totalsumma
                 </TableCell>
                 <TableCell className="totalBold" align="right">
-                  {subtotal} kronor
+                  {subtotal} SEK
                 </TableCell>
               </TableRow>
             </TableBody>
