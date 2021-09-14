@@ -20,7 +20,7 @@ const SubmitCheckoutButton: FC<props> = ({ isDisabled })  => {
 
   return (
     <Button variant="contained" color="default" size="medium" disabled={!isDisabled}>
-      <Link className={classes.link} to="/confirmation">Bekräfta beställning</Link>
+      <Link to="/confirmation" className={classes.link}>Bekräfta beställning</Link>
     </Button>
   );
 };

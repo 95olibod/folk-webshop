@@ -1,4 +1,4 @@
-import { Grid, Paper } from "@material-ui/core";
+import { Grid, Paper} from "@material-ui/core";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import TotalAndSubmitCard from "../movie/totalAndSubmitCard";
@@ -40,7 +40,7 @@ const ValidationTextField = withStyles({
 const CustomerForm = () => {
   const classes = useStyles();
 
-  const { handleInputValue, handleFormSubmit, formIsValid, errors } =
+  const { handleInputValue, formIsValid, errors } =
     CustomerFormValidator();
 
   return (
@@ -48,7 +48,7 @@ const CustomerForm = () => {
       <Grid item xs={12}>
         <Paper className={classes.paper}>
           <h4>Dina uppgifter</h4>
-          <form onSubmit={handleFormSubmit}>
+          <form>
             {inputFieldValues.map((inputFieldValue, index) => {
               return (
                 <ValidationTextField
@@ -71,9 +71,9 @@ const CustomerForm = () => {
             })}
           </form>
         </Paper>
-        <Paper className={classes.paper}>
+            <Paper className={classes.paper}>
           <TotalAndSubmitCard buttonIsDisabled={formIsValid()} />
-        </Paper>
+          </Paper>
       </Grid>
     </Grid>
   );

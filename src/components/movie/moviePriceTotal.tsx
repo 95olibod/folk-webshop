@@ -23,9 +23,10 @@ const MoviePriceTotal = () => {
   }
 
   return (
-    <p>
-      <h4>Summa:</h4> {e} SEK
-    </p>
+    <div>
+      <h4>Summa:</h4>
+      <p>{e} SEK</p>
+    </div>
   );
 };
 export default MoviePriceTotal;

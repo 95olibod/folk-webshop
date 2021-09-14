@@ -28,15 +28,17 @@ const CheckoutPage = () => {
   const classes = useStyles();
   const { addedMovies } = useContext(MovieContext);
 
-  const AddedMoviesList = movies.filter((movie) =>
+  var AddedMoviesList = movies.filter((movie) =>
     addedMovies.includes(movie.id)
   );
+
+  console.log(addedMovies);
 
   const count = addedMovies.length;
 
   if (count !== 0) {
     return (
-      <Grid container xs={12} spacing={0} justifyContent="center">
+      <Grid container spacing={0} justifyContent="center">
         <Grid item xs={9} sm={8} md={5}>
           <Paper className={classes.paper}>
             <MovieCheckoutCardTitle />
@@ -52,7 +54,7 @@ const CheckoutPage = () => {
     );
   } else {
     return (
-      <Grid container xs={12} spacing={0} justifyContent="center">
+      <Grid container spacing={0} justifyContent="center">
         <Grid item xs={9} sm={8} md={5}>
           <Paper className={classes.paper}>
             <MovieCheckoutCardTitle />

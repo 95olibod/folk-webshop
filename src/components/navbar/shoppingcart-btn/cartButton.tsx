@@ -1,17 +1,15 @@
-import React, {CSSProperties} from "react";
+import { CSSProperties } from "react";
 import './cartButton.css';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import { Link } from "react-router-dom";
 
 const CartButton = () => {
-
     return (
-        <button className= "cart-btn" >
+        <button className= "cart-btn">
             <Link to="/checkout" style={noLinkStyle}>
             <ShoppingCartIcon className= "shoppingcart" fontSize="medium" ></ShoppingCartIcon>
             </Link>
         </button>
-        
     );
 }
 
