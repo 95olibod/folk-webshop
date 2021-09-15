@@ -13,7 +13,7 @@ interface Props {
 //Component to make a quantity adjuster bar in cart
 const QuantityAdjuster: FC<Props> = ({ movie }) => {
   //Use context
-  const { addedMovies, toggleAddedMovies, decreaseAddedMovies } =
+  const { addedMovies, addToAddedMovies, decreaseAddedMovies } =
     useContext(MovieContext);
 
   //Calculate quantity for typography display
@@ -33,7 +33,7 @@ const QuantityAdjuster: FC<Props> = ({ movie }) => {
         </Typography>
       </div>
       <div>
-        <IncreaseButton onClick={() => toggleAddedMovies(movie.id)} />
+        <IncreaseButton onClick={() => addToAddedMovies(movie.id)} />
       </div>
     </div>
   );
