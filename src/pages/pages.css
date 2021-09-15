@@ -22,3 +22,9 @@
   position: absolute;
   top: 6rem;
 }
+
+@media (max-width: 480px) {
+  .movieContainer {
+    max-width: 100%;
+  }
+}

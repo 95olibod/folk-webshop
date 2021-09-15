@@ -77,10 +77,10 @@ const ConfirmationPage = () => {
             <Table aria-label="spanning table">
               <TableHead>
                 <TableRow>
-                  <TableCell>Titel</TableCell>
-                  <TableCell align="right">Antal</TableCell>
-                  <TableCell align="right">Pris</TableCell>
-                  <TableCell align="right">Summa</TableCell>
+                  <TableCell style={{padding: "0.5rem"}}>Titel</TableCell>
+                  <TableCell align="right" style={{padding: "0.5rem"}}>Antal</TableCell>
+                  <TableCell align="right" style={{padding: "0.5rem"}}>Pris</TableCell>
+                  <TableCell align="right" style={{padding: "0.5rem"}}>Summa</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
