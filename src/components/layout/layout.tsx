@@ -5,6 +5,7 @@ import HomePage from "../../pages/homepage";
 import ConfirmationPage from "../../pages/confirmationPage";
 import DetailsPage from "../../pages/detailsPage";
 import CheckoutPage from "../../pages/checkOutPage";
+import NotFoundPage from "../../pages/notFoundPage";
 
 function Layout() {
   return (
@@ -16,7 +17,7 @@ function Layout() {
         <Route path="/details/:id" component={DetailsPage} />
         <Route path="/checkout" component={CheckoutPage} />
         <Route path="/confirmation" component={ConfirmationPage} />
-        <Route component={HomePage} />
+        <Route component={NotFoundPage} />
       </Switch>
     </div>
   );
