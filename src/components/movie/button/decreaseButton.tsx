@@ -24,7 +24,7 @@ const DecreaseButton: FC<Props> = ({ onClick, movie }) => {
 
   if (isOnlyOne()) {
     return (
-      <Fab color="default" size="small" aria-label="remove">
+      <Fab color="default" size="small" aria-label="remove" disabled>
         <RemoveIcon />
       </Fab>
     );
