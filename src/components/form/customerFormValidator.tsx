@@ -4,6 +4,7 @@ import { defaultFormValues, Customer } from "./defaultFormValues";
 
 //Customer Form component
 export const CustomerFormValidator = () => {
+
   //Define states
   const [customer, setCustomer] = useState(defaultFormValues);
   const [errors, setErrors] = useState(emptyCustomerErrors);
@@ -16,10 +17,12 @@ export const CustomerFormValidator = () => {
     localStorage.setItem("userData", JSON.stringify(userData));
   }, [userData]);
 
+  //Set user data
   const toggleUserData = (userEmail: string) => {
     setUserData([userEmail]);
   };
 
+  //Validate cutsomer/inputs
   const validate = (fieldValues: Partial<Customer>) => {
     let nextError: CustomerErrors = { ...errors };
 
@@ -27,7 +30,7 @@ export const CustomerFormValidator = () => {
       nextError.name = fieldValues.name ? "" : "Obligatorisk.";
       if (fieldValues.name) {
         nextError.name =
-          /^[A-ZßÅÄÖÜ*][a-zåäöü*]+\s[A-ZßÅÄÖÜ*][a-zåäöü*]+$/.test(
+          /^[A-ZßÅÄÖÜ*][a-záéåäöü*]+\s[A-ZßÅÄÖÜ*][a-zåäöüáé*]+$/.test(
             fieldValues.name
           )
             ? ""
@@ -38,7 +41,7 @@ export const CustomerFormValidator = () => {
     if (fieldValues.shipAddress !== undefined) {
       nextError.shipAddress = fieldValues.shipAddress ? "" : "Obligatorisk.";
       if (fieldValues.shipAddress) {
-        nextError.shipAddress = /^[A-ZßÅÄÖÜ][a-zåäöü]+\s[0-9]/.test(
+        nextError.shipAddress = /^[A-ZßÅÄÖÜ][a-zåäöüéá]+\s[0-9]/.test(
           fieldValues.shipAddress
         )
           ? ""
@@ -58,7 +61,7 @@ export const CustomerFormValidator = () => {
     if (fieldValues.shipCity !== undefined) {
       nextError.shipCity = fieldValues.shipCity ? "" : "Obligatorisk.";
       if (fieldValues.shipCity) {
-        nextError.shipCity = /^[A-ZßÅÄÖÜ*][a-zåäöü*]+$/.test(
+        nextError.shipCity = /^[A-ZßÅÄÖÜ*][a-zåäöüáé*]+$/.test(
           fieldValues.shipCity
         )
           ? ""
@@ -89,6 +92,7 @@ export const CustomerFormValidator = () => {
     });
   };
 
+  //Handle input from form
   const handleInputValue = (e: any) => {
     const { name, value } = e.target;
     setCustomer({
@@ -98,6 +102,7 @@ export const CustomerFormValidator = () => {
     validate({ [name]: value } as Partial<Customer>);
   };
 
+  //Check if form is valid
   const formIsValid = () => {
     const isValid =
         customer.name &&
