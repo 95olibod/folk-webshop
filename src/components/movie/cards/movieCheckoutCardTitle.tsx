@@ -13,13 +13,13 @@ const useStyles = makeStyles(() => ({
 
 const MovieCheckoutCardTitle = () => {
   //Use context
-  const { addedMovies } = useContext(MovieContext);
+  const { countQuantityInAddedMovies } = useContext(MovieContext);
 
   //Implement styles
   const classes = useStyles();
 
   //Calculate quantity of movies in cart
-  const count = addedMovies.length;
+  const count = countQuantityInAddedMovies();
 
   //Check quantity, if quantity is not 0 show cart, if not show other message card
   if (count !== 0) {
