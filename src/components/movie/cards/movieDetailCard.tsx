@@ -38,14 +38,14 @@ const MovieDetailCard: FC<Props> = ({ movie }) => {
   const classes = useStyles();
 
   //Use context
-  const { toggleAddedMovies } = useContext(MovieContext);
+  const { addToAddedMovies } = useContext(MovieContext);
 
   //Sets snackbar
   const [isSnackbarOpen, setIsSnackbarOpen] = useState(false);
 
   //Displays snackbar
   const handleClick = (movie: MovieData) => {
-    toggleAddedMovies(movie.id);
+    addToAddedMovies(movie.id);
     setIsSnackbarOpen(true);
   };
 

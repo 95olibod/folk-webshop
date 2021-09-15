@@ -2,7 +2,7 @@ import { createContext, FC, useEffect, useState } from "react";
 
 interface ContextValue {
   addedMovies: number[];
-  toggleAddedMovies: (id: number) => void;
+  addToAddedMovies: (id: number) => void;
   decreaseAddedMovies: (id: number) => void;
   deleteFromAddedMovies: (id: number) => void;
 }
@@ -10,7 +10,7 @@ interface ContextValue {
 //Define and export context functions
 export const MovieContext = createContext<ContextValue>({
   addedMovies: [],
-  toggleAddedMovies: () => {},
+  addToAddedMovies: () => {},
   decreaseAddedMovies: () => {},
   deleteFromAddedMovies: () => {},
 });
@@ -24,7 +24,7 @@ const MovieProvider: FC = (props) => {
   );
 
   //Add movie
-  const toggleAddedMovies = (id: number) => {
+  const addToAddedMovies = (id: number) => {
     setAddedMovies([...addedMovies, id]);
   };
 
@@ -52,7 +52,7 @@ const MovieProvider: FC = (props) => {
     <MovieContext.Provider
       value={{
         addedMovies,
-        toggleAddedMovies,
+        addToAddedMovies,
         decreaseAddedMovies,
         deleteFromAddedMovies,
       }}

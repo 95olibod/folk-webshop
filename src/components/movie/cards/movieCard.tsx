@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 //Displays movies on homepage 
 const MovieCard: FC<Props> = ({ movie}) => {
-    const { toggleAddedMovies } = useContext(MovieContext);
+    const { addToAddedMovies } = useContext(MovieContext);
 
     //Sets url for routing
     const url = `/details/${movie.id}`;
@@ -41,7 +41,7 @@ const MovieCard: FC<Props> = ({ movie}) => {
     const [isSnackbarOpen, setIsSnackbarOpen] = useState(false);
 
     const handleClick = (movie: MovieData) => {
-        toggleAddedMovies(movie.id);
+        addToAddedMovies(movie.id);
         setIsSnackbarOpen(true);
     };
 

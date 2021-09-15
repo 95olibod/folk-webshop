@@ -30,7 +30,7 @@ export const CustomerFormValidator = () => {
       nextError.name = fieldValues.name ? "" : "Obligatorisk.";
       if (fieldValues.name) {
         nextError.name =
-          /^[A-ZßÅÄÖÜ*][a-záéåäöü*]+\s[A-ZßÅÄÖÜ*][a-zåäöüáé*]+$/.test(
+          /^[A-ZßÅÄÖÜ*][a-záéåäöüó*]+\s[A-ZßÅÄÖÜÁÉÓ*][a-zåäöüáéó*]+$/.test(
             fieldValues.name
           )
             ? ""
@@ -41,7 +41,7 @@ export const CustomerFormValidator = () => {
     if (fieldValues.shipAddress !== undefined) {
       nextError.shipAddress = fieldValues.shipAddress ? "" : "Obligatorisk.";
       if (fieldValues.shipAddress) {
-        nextError.shipAddress = /^[A-ZßÅÄÖÜ][a-zåäöüéá]+\s[0-9]/.test(
+        nextError.shipAddress = /^[A-ZßÅÄÖÜÁ][a-zåäöüéáó]+\s[0-9]/.test(
           fieldValues.shipAddress
         )
           ? ""
@@ -61,7 +61,7 @@ export const CustomerFormValidator = () => {
     if (fieldValues.shipCity !== undefined) {
       nextError.shipCity = fieldValues.shipCity ? "" : "Obligatorisk.";
       if (fieldValues.shipCity) {
-        nextError.shipCity = /^[A-ZßÅÄÖÜ*][a-zåäöüáé*]+$/.test(
+        nextError.shipCity = /^[A-ZßÅÄÖÜÁÉÓ*][a-zåäöüáéó*]+$/.test(
           fieldValues.shipCity
         )
           ? ""
