@@ -6,6 +6,7 @@ interface Props {
   onClick: MouseEventHandler<HTMLButtonElement>;
 }
 
+//Button component for increasing quantity of item in cart
 const IncreaseButton: FC<Props> = ({ onClick }) => {
   return (
     <Fab color="default" size="small" aria-label="add" onClick={onClick}>

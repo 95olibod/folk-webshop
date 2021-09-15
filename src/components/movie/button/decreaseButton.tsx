@@ -9,11 +9,14 @@ interface Props {
   movie: MovieData;
 }
 
+//Button component for decreasing quantity of item in cart
 const DecreaseButton: FC<Props> = ({ onClick, movie }) => {
   const { addedMovies } = useContext(MovieContext);
 
+  //Calculate quantity
   const count = addedMovies.filter((obj) => obj === movie.id).length;
 
+  //Check if quantity of specific item in cart is only one
   const isOnlyOne = () => {
     if (count <= 1) {
       return true;
@@ -22,6 +25,7 @@ const DecreaseButton: FC<Props> = ({ onClick, movie }) => {
     }
   };
 
+  //If quantity is only one, the decrease button becomes unclickable.
   if (isOnlyOne()) {
     return (
       <Fab color="default" size="small" aria-label="remove" disabled>

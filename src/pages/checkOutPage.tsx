@@ -8,10 +8,11 @@ import {
 import { useContext } from "react";
 import CustomerForm from "../components/form/customerForm";
 import { movies } from "../components/movie/movie";
-import MovieCheckoutCard from "../components/movie/movieCheckoutCard";
-import MovieCheckoutCardTitle from "../components/movie/movieCheckoutCardTitle";
+import MovieCheckoutCard from "../components/movie/cards/movieCheckoutCard";
+import MovieCheckoutCardTitle from "../components/movie/cards/movieCheckoutCardTitle";
 import { MovieContext } from "../contexts/movieContext";
 
+//Component styles
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     paper: {
@@ -25,24 +26,28 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 const CheckoutPage = () => {
+  //Implement styles
   const classes = useStyles();
+
+  //Use context
   const { addedMovies } = useContext(MovieContext);
 
-  var AddedMoviesList = movies.filter((movie) =>
+  //Filter movies to know which movies are in cart
+  var filterAddedMoviesList = movies.filter((movie) =>
     addedMovies.includes(movie.id)
   );
 
-  console.log(addedMovies);
-
+  //Calculate quantity of movies in cart
   const count = addedMovies.length;
 
+  //If quantity of movies is not 0 display all cards, else hide form and submit cards
   if (count !== 0) {
     return (
       <Grid container spacing={0} justifyContent="center">
         <Grid item xs={9} sm={8} md={5}>
           <Paper className={classes.paper}>
             <MovieCheckoutCardTitle />
-            {AddedMoviesList.map((movie) => (
+            {filterAddedMoviesList.map((movie) => (
               <MovieCheckoutCard key={movie.id} movie={movie} />
             ))}
           </Paper>
@@ -58,7 +63,7 @@ const CheckoutPage = () => {
         <Grid item xs={9} sm={8} md={5}>
           <Paper className={classes.paper}>
             <MovieCheckoutCardTitle />
-            {AddedMoviesList.map((movie) => (
+            {filterAddedMoviesList.map((movie) => (
               <MovieCheckoutCard key={movie.id} movie={movie} />
             ))}
           </Paper>

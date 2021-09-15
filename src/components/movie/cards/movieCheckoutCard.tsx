@@ -2,16 +2,17 @@ import { createStyles, makeStyles } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { FC, useContext } from "react";
-import { MovieContext } from "../../contexts/movieContext";
-import DeleteButton from "../movie/button/deleteButton";
-import { MovieData } from "./movie";
-import "./movie.css";
-import QuantityAdjuster from "./quantityAdjuster";
+import { MovieContext } from "../../../contexts/movieContext";
+import DeleteButton from "../../movie/button/deleteButton";
+import { MovieData } from "../movie";
+import "../movie.css";
+import QuantityAdjuster from "../quantityAdjuster";
 
 interface Props {
   movie: MovieData;
 }
 
+//Styles for component
 const useStyles = makeStyles(() =>
   createStyles({
     image: {
@@ -34,7 +35,10 @@ const useStyles = makeStyles(() =>
 );
 
 const MovieCheckoutCard: FC<Props> = ({ movie }) => {
+  //Implement styles
   const classes = useStyles();
+
+  //Use context
   const { deleteFromAddedMovies } = useContext(MovieContext);
 
   return (

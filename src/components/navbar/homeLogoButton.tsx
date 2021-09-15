@@ -1,47 +1,22 @@
-import { CSSProperties } from "react";
+import "./navbar.css";
 import { Link } from "react-router-dom";
 
+//Component with clickable logo in navbar
 const HomeLogoButton = () => {
   return (
-    <div style={rootStyle}>
-      <Link to="/" style={noStyle}>
-        <button style={logoStyle}>
+    <div className={"rootStyle"}>
+      <Link to="/" className="noStyle">
+        <button className="logoStyle">
           <img
-            style={logoStyle}
+            className="logoStyle"
             src="https://findicons.com/files/icons/1182/quickpix_2009/128/captain_america.png"
             alt=""
           />
-      <p style={textStyle}>FOLK</p>
+      <p className="textStyle">FOLK</p>
         </button>
       </Link>
     </div>
   );
 };
 
-const logoStyle: CSSProperties = {
-  objectFit: "cover",
-  height: "100%",
-  border: "none",
-  background: "transparent",
-  display: "flex",
-  flexDirection: "row",
-  cursor: "pointer",
-  alignItems: "center"
-};
-const rootStyle: CSSProperties = {
-  display: "flex",
-  flexDirection: "row",
-  color: "white",
-};
-
-const textStyle: CSSProperties = {
-  display: "flex",
-  color: "white",
- 
-};
-
-const noStyle: CSSProperties = {
- textDecoration: "none",
- 
-};
 export default HomeLogoButton;

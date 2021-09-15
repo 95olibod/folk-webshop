@@ -1,5 +1,5 @@
-import { MovieData } from "./movie";
-import "./movie.css";
+import { MovieData } from "../movie";
+import "../movie.css";
 import { FC, useContext, useState } from "react";
 import {
   Button,
@@ -9,34 +9,41 @@ import {
   Snackbar,
   Theme,
 } from "@material-ui/core";
-import { MovieContext } from "../../contexts/movieContext";
-import ButtonOwn from "./button/button";
+import { MovieContext } from "../../../contexts/movieContext";
+import ButtonOwn from "../button/button";
 import { Link } from "react-router-dom";
 
 interface Props {
   movie: MovieData;
 }
 
-const MovieDetailCard: FC<Props> = ({ movie }) => {
-  const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-      paper: {
-        padding: theme.spacing(2),
-        margin: "auto",
-        marginBottom: "0.5rem",
-        maxWidth: 500,
-        marginRight: "0.5rem",
-        marginLeft: "0.5rem",
-      },
-    })
-  );
+//Component styles
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    paper: {
+      padding: theme.spacing(2),
+      margin: "auto",
+      marginBottom: "0.5rem",
+      maxWidth: 500,
+      marginRight: "0.5rem",
+      marginLeft: "0.5rem",
+    },
+  })
+);
 
+//Displays detail information on a specific movie
+const MovieDetailCard: FC<Props> = ({ movie }) => {
+
+  //Implement styles
   const classes = useStyles();
 
+  //Use context
   const { toggleAddedMovies } = useContext(MovieContext);
 
+  //Sets snackbar
   const [isSnackbarOpen, setIsSnackbarOpen] = useState(false);
 
+  //Displays snackbar
   const handleClick = (movie: MovieData) => {
     toggleAddedMovies(movie.id);
     setIsSnackbarOpen(true);
@@ -68,9 +75,9 @@ const MovieDetailCard: FC<Props> = ({ movie }) => {
       </div>
       <h3 className="details-h3">Handling</h3>
       <p className="storyline-p">{movie.storyline}</p>
-      <div className="flex space-between ">
+      <div className="flex space-between">
         <Link to="/" className="noTextDecoration">
-          <Button variant="contained" color="primary">
+          <Button variant="contained" color="default">
             Tillbaka
           </Button>
         </Link>

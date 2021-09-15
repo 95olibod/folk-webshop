@@ -11,25 +11,29 @@ import Paper from "@material-ui/core/Paper";
 import "./confirmationPage.css";
 import { Redirect } from "react-router";
 
+//Component to display confirmation message after order is confirmed
 const ConfirmationPage = () => {
+  //Get user email info from local storage
   const userEmail = JSON.parse(localStorage.getItem("userData") || "[]");
 
-  const { addedMovies } =
-    useContext(MovieContext);
+  //Use context
+  const { addedMovies } = useContext(MovieContext);
 
+  //Filter movies to know which movies were in cart
   const filteredAddedMoviesList = movies.filter((movie) =>
     addedMovies.includes(movie.id)
   );
 
+  //Get the information for of every specific movie that were in cart
   let displayArray: MovieData[] = [];
-
   for (const item of addedMovies) {
-    const arr = filteredAddedMoviesList.find((movie) => item === movie.id);
-    if (arr) {
-      displayArray.push(arr);
+    const movie = filteredAddedMoviesList.find((movie) => item === movie.id);
+    if (movie) {
+      displayArray.push(movie);
     }
   }
 
+  // Calculates the total sum for a specific movie
   const calculateSumPerMovie = (id: number, price: number) => {
     const quantity = displayArray.filter((movie) => movie.id === id).length;
     const sum = quantity * price;
@@ -37,21 +41,25 @@ const ConfirmationPage = () => {
     return sum;
   };
 
+  // Calculates the added number of a specific movie
   const getQuantityPerMovie = (id: number) => {
     const quantity = displayArray.filter((movie) => movie.id === id).length;
 
     return quantity;
   };
 
+  // Calculates the total price for all added movies
   const subtotal = displayArray
     .map(({ price }) => price)
     .reduce((sum: number, i: number) => sum + i, 0);
 
+  //Empty added movies and local storage so cart is empty after order is confirmed
   useEffect(() => {
     localStorage.clear();
     addedMovies.length = 0;
   });
 
+  //If reload of page occurs when confirmation has been shown, user gets redirected to front page.
   if (addedMovies.length === 0) {
     return <Redirect to="/" />;
   } else {
@@ -61,7 +69,7 @@ const ConfirmationPage = () => {
           <div className="confirmationInformationContainer">
             <p className="confirmText">
               Tack för din order! Vi har skickat en orderbekräftelse till
-              {userEmail}. Nedan finner du en sammanställning av din order.
+              {" " + userEmail}. Nedan finner du en sammanställning av din order.
               Välkommen åter!
             </p>
           </div>

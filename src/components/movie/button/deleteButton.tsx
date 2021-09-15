@@ -7,6 +7,7 @@ interface Props {
   onClick: MouseEventHandler<HTMLButtonElement>;
 }
 
+//Button component to delete item from cart
 const DeleteButton: FC<Props> = ({ onClick }) => {
   return (
     <div>

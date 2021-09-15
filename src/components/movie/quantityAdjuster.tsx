@@ -10,10 +10,13 @@ interface Props {
   movie: MovieData;
 }
 
+//Component to make a quantity adjuster bar in cart
 const QuantityAdjuster: FC<Props> = ({ movie }) => {
+  //Use context
   const { addedMovies, toggleAddedMovies, decreaseAddedMovies } =
     useContext(MovieContext);
 
+  //Calculate quantity for typography display
   const count = addedMovies.filter((obj) => obj === movie.id).length;
 
   return (
