@@ -38,7 +38,7 @@ export const CustomerFormValidator = () => {
           fieldValues.name
         )
           ? ""
-          : "Ange för- och efternamn.";
+          : "Ange för- & efternamn. Börja med versaler";
       }
     }
 
@@ -49,7 +49,7 @@ export const CustomerFormValidator = () => {
           fieldValues.shipAddress
         )
           ? ""
-          : "Ogiltig adress. Ange gatunamn och nummer.";
+          : "Ange gatunamn & nummer. Börja med versal";
       }
     }
 
@@ -58,7 +58,7 @@ export const CustomerFormValidator = () => {
       if (fieldValues.shipZip) {
         temp.shipZip = /^[0-9]{5}$/g.test(fieldValues.shipZip)
           ? ""
-          : "Ogiltigt postnummer. Ange 5 siffror";
+          : "Ange 5 siffror.";
       }
     }
 
@@ -67,7 +67,7 @@ export const CustomerFormValidator = () => {
       if (fieldValues.shipCity) {
         temp.shipCity = /^[A-ZßÅÄÖÜ*][a-zåäöü*]+$/.test(fieldValues.shipCity)
           ? ""
-          : "Ogiltig namn.";
+          : "Börja med versal.";
       }
     }
 
@@ -87,7 +87,7 @@ export const CustomerFormValidator = () => {
       if (fieldValues.mobile)
         temp.mobile = /^[0-9]{10}$/g.test(fieldValues.mobile)
           ? ""
-          : "Ogiltigt nummer. Ange 10 siffror.";
+          : "Ange 10 siffror.";
     }
 
     setErrors({

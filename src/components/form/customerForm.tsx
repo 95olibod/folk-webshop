@@ -1,7 +1,7 @@
 import { Grid, Paper} from "@material-ui/core";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
-import TotalAndSubmitCard from "../movie/totalAndSubmitCard";
+import TotalAndSubmitCard from "../movie/cards/totalAndSubmitCard";
 import { CustomerFormValidator } from "./customerFormValidator";
 import { inputFieldValues } from "./defaultFieldValues";
 

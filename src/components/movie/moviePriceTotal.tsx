@@ -5,27 +5,27 @@ import { movies } from "./movie";
 const MoviePriceTotal = () => {
   const { addedMovies } = useContext(MovieContext);
 
-  const AddedMoviesList = movies.filter((movie) =>
+  const filteredMovieList = movies.filter((movie) =>
     addedMovies.includes(movie.id)
   );
 
-  let newArray = [];
+  let addedMoviesList = [];
   for (const item of addedMovies) {
-    const arr = AddedMoviesList.find((movie) => item === movie.id);
-    if (arr) {
-      newArray.push(arr);
+    const movie = filteredMovieList.find((movie) => item === movie.id);
+    if (movie) {
+      addedMoviesList.push(movie);
     }
   }
 
-  let e = 0;
-  for (const item of newArray) {
-    e += item.price;
+  let sum = 0;
+  for (const item of addedMoviesList) {
+    sum += item.price;
   }
 
   return (
     <div>
       <h4>Summa:</h4>
-      <p>{e} SEK</p>
+      <p>{sum} SEK</p>
     </div>
   );
 };

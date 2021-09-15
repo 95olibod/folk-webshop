@@ -1,7 +1,7 @@
 import { Grid } from "@material-ui/core";
 import { FC } from "react";
-import SubmitCheckoutButton from "./button/submitCheckoutButton";
-import MoviePriceTotal from "./moviePriceTotal";
+import SubmitCheckoutButton from "../button/submitCheckoutButton";
+import MoviePriceTotal from "../moviePriceTotal";
 
 interface props {
   buttonIsDisabled: boolean | "";

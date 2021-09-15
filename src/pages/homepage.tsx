@@ -1,5 +1,5 @@
 import { movies } from "../components/movie/movie";
-import MovieCard from "../components/movie/movieCard";
+import MovieCard from "../components/movie/cards/movieCard";
 import "./pages.css"
 
 const HomePage = () => {

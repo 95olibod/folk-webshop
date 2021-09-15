@@ -1,4 +1,3 @@
-import React from "react";
 import HomeLogoButton from "./homeLogoButton";
 import "./navbar.css";
 import CartButton from "./shoppingcart-btn/cartButton";

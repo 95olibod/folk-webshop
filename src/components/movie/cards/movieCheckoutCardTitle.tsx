@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { MovieContext } from "../../contexts/movieContext";
+import { MovieContext } from "../../../contexts/movieContext";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core";
 

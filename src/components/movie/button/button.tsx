@@ -1,5 +1,4 @@
 import React, { FC, MouseEventHandler } from "react";
-//import './cart-btn.css';
 import Button from "@material-ui/core/Button";
 
 interface Props {

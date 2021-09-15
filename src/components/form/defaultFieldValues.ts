@@ -1,6 +1,6 @@
 export const inputFieldValues = [
   {
-    label: "För- & Efternamn",
+    label: "För- & efternamn",
     name: "name",
     placeholder: "Ex. Anna Andersson",
     autoComplete: "name",

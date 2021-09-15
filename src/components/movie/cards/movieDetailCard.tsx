@@ -1,5 +1,5 @@
-import { MovieData } from "./movie";
-import "./movie.css";
+import { MovieData } from "../movie";
+import "../movie.css";
 import { FC, useContext, useState } from "react";
 import {
   Button,
@@ -9,8 +9,8 @@ import {
   Snackbar,
   Theme,
 } from "@material-ui/core";
-import { MovieContext } from "../../contexts/movieContext";
-import ButtonOwn from "./button/button";
+import { MovieContext } from "../../../contexts/movieContext";
+import ButtonOwn from "../button/button";
 import { Link } from "react-router-dom";
 
 interface Props {
@@ -68,9 +68,9 @@ const MovieDetailCard: FC<Props> = ({ movie }) => {
       </div>
       <h3 className="details-h3">Handling</h3>
       <p className="storyline-p">{movie.storyline}</p>
-      <div className="flex space-between ">
+      <div className="flex space-between">
         <Link to="/" className="noTextDecoration">
-          <Button variant="contained" color="primary">
+          <Button variant="contained" color="default">
             Tillbaka
           </Button>
         </Link>

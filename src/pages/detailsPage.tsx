@@ -1,4 +1,4 @@
-import MovieDetailCard from "../components/movie/movieDetailCard";
+import MovieDetailCard from "../components/movie/cards/movieDetailCard";
 import { MovieData, movies } from "../components/movie/movie";
 import { RouteComponentProps } from "react-router-dom";
 import { CSSProperties } from "react";

@@ -8,8 +8,8 @@ import {
 import { useContext } from "react";
 import CustomerForm from "../components/form/customerForm";
 import { movies } from "../components/movie/movie";
-import MovieCheckoutCard from "../components/movie/movieCheckoutCard";
-import MovieCheckoutCardTitle from "../components/movie/movieCheckoutCardTitle";
+import MovieCheckoutCard from "../components/movie/cards/movieCheckoutCard";
+import MovieCheckoutCardTitle from "../components/movie/cards/movieCheckoutCardTitle";
 import { MovieContext } from "../contexts/movieContext";
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -28,7 +28,7 @@ const CheckoutPage = () => {
   const classes = useStyles();
   const { addedMovies } = useContext(MovieContext);
 
-  var AddedMoviesList = movies.filter((movie) =>
+  var filterAddedMoviesList = movies.filter((movie) =>
     addedMovies.includes(movie.id)
   );
 
@@ -42,7 +42,7 @@ const CheckoutPage = () => {
         <Grid item xs={9} sm={8} md={5}>
           <Paper className={classes.paper}>
             <MovieCheckoutCardTitle />
-            {AddedMoviesList.map((movie) => (
+            {filterAddedMoviesList.map((movie) => (
               <MovieCheckoutCard key={movie.id} movie={movie} />
             ))}
           </Paper>
@@ -58,7 +58,7 @@ const CheckoutPage = () => {
         <Grid item xs={9} sm={8} md={5}>
           <Paper className={classes.paper}>
             <MovieCheckoutCardTitle />
-            {AddedMoviesList.map((movie) => (
+            {filterAddedMoviesList.map((movie) => (
               <MovieCheckoutCard key={movie.id} movie={movie} />
             ))}
           </Paper>

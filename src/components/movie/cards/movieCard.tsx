@@ -1,10 +1,10 @@
-import Button from "./button/button";
-import { MovieData } from "./movie";
+import Button from "../button/button";
+import { MovieData } from "../movie";
 import Snackbar, { SnackbarOrigin } from "@material-ui/core/Snackbar";
-import "./movie.css";
+import "../movie.css";
 import { FC, useState } from "react";
 import { useContext } from "react";
-import { MovieContext } from "../../contexts/movieContext";
+import { MovieContext } from "../../../contexts/movieContext";
 import { Link } from "react-router-dom";
 import { createStyles, makeStyles, Paper, Theme } from "@material-ui/core";
 

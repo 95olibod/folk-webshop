@@ -14,8 +14,7 @@ import { Redirect } from "react-router";
 const ConfirmationPage = () => {
   const userEmail = JSON.parse(localStorage.getItem("userData") || "[]");
 
-  const { addedMovies } =
-    useContext(MovieContext);
+  const { addedMovies } = useContext(MovieContext);
 
   const filteredAddedMoviesList = movies.filter((movie) =>
     addedMovies.includes(movie.id)
@@ -24,9 +23,9 @@ const ConfirmationPage = () => {
   let displayArray: MovieData[] = [];
 
   for (const item of addedMovies) {
-    const arr = filteredAddedMoviesList.find((movie) => item === movie.id);
-    if (arr) {
-      displayArray.push(arr);
+    const movie = filteredAddedMoviesList.find((movie) => item === movie.id);
+    if (movie) {
+      displayArray.push(movie);
     }
   }
 
@@ -61,7 +60,7 @@ const ConfirmationPage = () => {
           <div className="confirmationInformationContainer">
             <p className="confirmText">
               Tack för din order! Vi har skickat en orderbekräftelse till
-              {userEmail}. Nedan finner du en sammanställning av din order.
+              {" " + userEmail}. Nedan finner du en sammanställning av din order.
               Välkommen åter!
             </p>
           </div>
