@@ -14,6 +14,7 @@ interface props {
   isDisabled: boolean | "";
 }
 
+//Button component for submitting/confirm order
 const SubmitCheckoutButton: FC<props> = ({ isDisabled })  => {
 
   const classes = useStyles();

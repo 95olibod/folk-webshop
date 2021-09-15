@@ -1,6 +1,7 @@
 import "./navbar.css";
 import { Link } from "react-router-dom";
 
+//Component with clickable logo in navbar
 const HomeLogoButton = () => {
   return (
     <div className={"rootStyle"}>

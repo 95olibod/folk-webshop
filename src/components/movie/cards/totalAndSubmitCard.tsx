@@ -7,6 +7,7 @@ interface props {
   buttonIsDisabled: boolean | "";
 }
 
+//Component for showing price total and submit button
 const TotalAndSubmitCard: FC<props> = ({ buttonIsDisabled }) => {
   return (
     <Grid container>

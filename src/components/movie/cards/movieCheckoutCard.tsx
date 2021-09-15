@@ -12,6 +12,7 @@ interface Props {
   movie: MovieData;
 }
 
+//Styles for component
 const useStyles = makeStyles(() =>
   createStyles({
     image: {
@@ -34,7 +35,10 @@ const useStyles = makeStyles(() =>
 );
 
 const MovieCheckoutCard: FC<Props> = ({ movie }) => {
+  //Implement styles
   const classes = useStyles();
+
+  //Use context
   const { deleteFromAddedMovies } = useContext(MovieContext);
 
   return (

@@ -17,26 +17,33 @@ interface Props {
   movie: MovieData;
 }
 
-const MovieDetailCard: FC<Props> = ({ movie }) => {
-  const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-      paper: {
-        padding: theme.spacing(2),
-        margin: "auto",
-        marginBottom: "0.5rem",
-        maxWidth: 500,
-        marginRight: "0.5rem",
-        marginLeft: "0.5rem",
-      },
-    })
-  );
+//Component styles
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    paper: {
+      padding: theme.spacing(2),
+      margin: "auto",
+      marginBottom: "0.5rem",
+      maxWidth: 500,
+      marginRight: "0.5rem",
+      marginLeft: "0.5rem",
+    },
+  })
+);
 
+//Displays detail information on a specific movie
+const MovieDetailCard: FC<Props> = ({ movie }) => {
+
+  //Implement styles
   const classes = useStyles();
 
+  //Use context
   const { toggleAddedMovies } = useContext(MovieContext);
 
+  //Sets snackbar
   const [isSnackbarOpen, setIsSnackbarOpen] = useState(false);
 
+  //Displays snackbar
   const handleClick = (movie: MovieData) => {
     toggleAddedMovies(movie.id);
     setIsSnackbarOpen(true);

@@ -1,51 +1,44 @@
 import { useEffect, useState } from "react";
+import { CustomerErrors, emptyCustomerErrors } from "./customerErrors";
+import { defaultFormValues, Customer } from "./defaultFormValues";
 
-const defaultFormValues = {
-  name: "",
-  shipAddress: "",
-  shipZip: "",
-  shipCity: "",
-  email: "",
-  mobile: "",
-  formSubmitted: false,
-  success: false,
-};
-
+//Customer Form component
 export const CustomerFormValidator = () => {
-  const [values, setValues] = useState(defaultFormValues);
-  const [errors, setErrors] = useState({} as any);
-
-
+  //Define states
+  const [customer, setCustomer] = useState(defaultFormValues);
+  const [errors, setErrors] = useState(emptyCustomerErrors);
   const [userData, setUserData] = useState<string[]>(
     JSON.parse(localStorage.getItem("userData") || "[]")
   );
-  
+
+  //Fill local storage with user data
   useEffect(() => {
     localStorage.setItem("userData", JSON.stringify(userData));
   }, [userData]);
-  
-  const toggleUserData = (userEmail: string) => {   
+
+  const toggleUserData = (userEmail: string) => {
     setUserData([userEmail]);
   };
 
-  const validate: any = (fieldValues = values) => {
-    let temp: any = { ...errors };
+  const validate = (fieldValues: Partial<Customer>) => {
+    let nextError: CustomerErrors = { ...errors };
 
-    if ("name" in fieldValues) {
-      temp.name = fieldValues.name ? "" : "Obligatorisk.";
+    if (fieldValues.name !== undefined) {
+      nextError.name = fieldValues.name ? "" : "Obligatorisk.";
       if (fieldValues.name) {
-        temp.name = /^[A-ZßÅÄÖÜ*][a-zåäöü*]+\s[A-ZßÅÄÖÜ*][a-zåäöü*]+$/.test(
-          fieldValues.name
-        )
-          ? ""
-          : "Ange för- & efternamn. Börja med versaler";
+        nextError.name =
+          /^[A-ZßÅÄÖÜ*][a-zåäöü*]+\s[A-ZßÅÄÖÜ*][a-zåäöü*]+$/.test(
+            fieldValues.name
+          )
+            ? ""
+            : "Ange för- & efternamn. Börja med versaler";
       }
     }
 
-    if ("shipAddress" in fieldValues) {
-      temp.shipAddress = fieldValues.shipAddress ? "" : "Obligatorisk.";
+    if (fieldValues.shipAddress !== undefined) {
+      nextError.shipAddress = fieldValues.shipAddress ? "" : "Obligatorisk.";
       if (fieldValues.shipAddress) {
-        temp.shipAddress = /^[A-ZßÅÄÖÜ][a-zåäöü]+\s[0-9]/.test(
+        nextError.shipAddress = /^[A-ZßÅÄÖÜ][a-zåäöü]+\s[0-9]/.test(
           fieldValues.shipAddress
         )
           ? ""
@@ -53,65 +46,66 @@ export const CustomerFormValidator = () => {
       }
     }
 
-    if ("shipZip" in fieldValues) {
-      temp.shipZip = fieldValues.shipZip ? 0 : "Obligatorisk.";
+    if (fieldValues.shipZip !== undefined) {
+      nextError.shipZip = fieldValues.shipZip ? "" : "Obligatorisk.";
       if (fieldValues.shipZip) {
-        temp.shipZip = /^[0-9]{5}$/g.test(fieldValues.shipZip)
+        nextError.shipZip = /^[0-9]{5}$/g.test(fieldValues.shipZip)
           ? ""
           : "Ange 5 siffror.";
       }
     }
 
-    if ("shipCity" in fieldValues) {
-      temp.shipCity = fieldValues.shipCity ? "" : "Obligatorisk.";
+    if (fieldValues.shipCity !== undefined) {
+      nextError.shipCity = fieldValues.shipCity ? "" : "Obligatorisk.";
       if (fieldValues.shipCity) {
-        temp.shipCity = /^[A-ZßÅÄÖÜ*][a-zåäöü*]+$/.test(fieldValues.shipCity)
+        nextError.shipCity = /^[A-ZßÅÄÖÜ*][a-zåäöü*]+$/.test(
+          fieldValues.shipCity
+        )
           ? ""
           : "Börja med versal.";
       }
     }
 
-    if ("email" in fieldValues) {
-      temp.email = fieldValues.email ? "" : "Obligatorisk.";
+    if (fieldValues.email !== undefined) {
+      nextError.email = fieldValues.email ? "" : "Obligatorisk.";
       if (fieldValues.email) {
-        temp.email = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(fieldValues.email)
-        ? ""
-        : "Ogiltig adress.";
+        nextError.email = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(fieldValues.email)
+          ? ""
+          : "Ogiltig adress.";
       }
-      toggleUserData(fieldValues.email)
-
+      toggleUserData(fieldValues.email);
     }
 
-    if ("mobile" in fieldValues) {
-      temp.mobile = fieldValues.mobile ? 0 : "Obligatorisk.";
+    if (fieldValues.mobile !== undefined) {
+      nextError.mobile = fieldValues.mobile ? "" : "Obligatorisk.";
       if (fieldValues.mobile)
-        temp.mobile = /^[0-9]{10}$/g.test(fieldValues.mobile)
+        nextError.mobile = /^[0-9]{10}$/g.test(fieldValues.mobile)
           ? ""
           : "Ange 10 siffror.";
     }
 
     setErrors({
-      ...temp,
+      ...nextError,
     });
   };
 
   const handleInputValue = (e: any) => {
     const { name, value } = e.target;
-    setValues({
-      ...values,
+    setCustomer({
+      ...customer,
       [name]: value,
     });
-    validate({ [name]: value });
+    validate({ [name]: value } as Partial<Customer>);
   };
 
-  const formIsValid = (fieldValues = values) => {
+  const formIsValid = () => {
     const isValid =
-      fieldValues.name &&
-      fieldValues.shipAddress &&
-      fieldValues.shipZip &&
-      fieldValues.shipCity &&
-      fieldValues.email &&
-      fieldValues.mobile &&
+        customer.name &&
+        customer.shipAddress &&
+        customer.shipZip &&
+        customer.shipCity &&
+        customer.email &&
+        customer.mobile &&
       Object.values(errors).every((x) => x === "");
 
     return isValid;

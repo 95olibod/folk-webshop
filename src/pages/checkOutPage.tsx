@@ -12,6 +12,7 @@ import MovieCheckoutCard from "../components/movie/cards/movieCheckoutCard";
 import MovieCheckoutCardTitle from "../components/movie/cards/movieCheckoutCardTitle";
 import { MovieContext } from "../contexts/movieContext";
 
+//Component styles
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     paper: {
@@ -25,17 +26,21 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 const CheckoutPage = () => {
+  //Implement styles
   const classes = useStyles();
+
+  //Use context
   const { addedMovies } = useContext(MovieContext);
 
+  //Filter movies to know which movies are in cart
   var filterAddedMoviesList = movies.filter((movie) =>
     addedMovies.includes(movie.id)
   );
 
-  console.log(addedMovies);
-
+  //Calculate quantity of movies in cart
   const count = addedMovies.length;
 
+  //If quantity of movies is not 0 display all cards, else hide form and submit cards
   if (count !== 0) {
     return (
       <Grid container spacing={0} justifyContent="center">

@@ -8,6 +8,7 @@ import { MovieContext } from "../../../contexts/movieContext";
 import { Link } from "react-router-dom";
 import { createStyles, makeStyles, Paper, Theme } from "@material-ui/core";
 
+
 export interface State extends SnackbarOrigin {
     open: boolean;
 }
@@ -16,20 +17,26 @@ interface Props {
     movie: MovieData;
 }
 
+//Styles for component
+const useStyles = makeStyles((theme: Theme) =>
+    createStyles({
+        paper: {
+            padding: theme.spacing(2),
+            margin: "0.5rem",
+            maxWidth: 500,
+        },
+    })
+);
+
+//Displays movies on homepage 
 const MovieCard: FC<Props> = ({ movie}) => {
     const { toggleAddedMovies } = useContext(MovieContext);
 
+    //Sets url for routing
     const url = `/details/${movie.id}`;
 
-    const useStyles = makeStyles((theme: Theme) =>
-        createStyles({
-            paper: {
-                padding: theme.spacing(2),
-                margin: "0.5rem",
-                maxWidth: 500,
-            },
-        })
-    );
+    //Implement styles
+    const classes = useStyles();
 
     const [isSnackbarOpen, setIsSnackbarOpen] = useState(false);
 
@@ -40,7 +47,6 @@ const MovieCard: FC<Props> = ({ movie}) => {
 
     const hideSnackbar = () => setIsSnackbarOpen(false);
 
-    const classes = useStyles();
     return (
         <Paper className={classes.paper}>
             <div className="movie-homepage-card">

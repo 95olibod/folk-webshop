@@ -5,6 +5,8 @@ import TotalAndSubmitCard from "../movie/cards/totalAndSubmitCard";
 import { CustomerFormValidator } from "./customerFormValidator";
 import { inputFieldValues } from "./defaultFieldValues";
 
+//Styles for component
+
 const useStyles = makeStyles((theme) => ({
   margin: {
     margin: theme.spacing(1),
@@ -18,6 +20,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+//Styles for the textfields in form
+
 const ValidationTextField = withStyles({
   root: {
     "& input:valid + fieldset": {
@@ -30,16 +34,21 @@ const ValidationTextField = withStyles({
     },
     "& input:valid:focus + fieldset": {
       borderLeftWidth: 6,
-      padding: "4px !important",
+      padding: "4px !important", // override inline-style
     },
 
     background: "white",
   },
 })(TextField);
 
+//Form component
+
 const CustomerForm = () => {
+
+  //Implement styles
   const classes = useStyles();
 
+  //Provide CustomerFormValidator functions
   const { handleInputValue, formIsValid, errors } =
     CustomerFormValidator();
 

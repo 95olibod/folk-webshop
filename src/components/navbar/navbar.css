@@ -37,6 +37,8 @@
   text-decoration: none;
 }
 
+/* Media queries */
+
 @media (max-width: 1024px) {
   .navbar {
     height: 2.8rem;

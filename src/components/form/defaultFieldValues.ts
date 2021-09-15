@@ -1,4 +1,15 @@
-export const inputFieldValues = [
+import { CustomerErrorsKey } from "./customerErrors"
+
+
+interface InputFieldValues {
+  label: string;
+  name: CustomerErrorsKey;
+  placeholder: string;
+  type?: string;
+  autoComplete: string;
+}
+
+export const inputFieldValues: InputFieldValues[] = [
   {
     label: "För- & efternamn",
     name: "name",

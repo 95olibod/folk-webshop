@@ -9,6 +9,12 @@
     
 }
 
+.link {
+    text-decoration: "none",
+}
+
+/* Media queries */
+
 @media (max-width: 1024px) {
     
 }
