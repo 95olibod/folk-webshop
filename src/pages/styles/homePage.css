@@ -1,0 +1,30 @@
+.movieContainer {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  background: #02060f;
+  justify-content: center;
+  max-width: 1160px;
+}
+
+.outerDiv {
+  background: #02060f;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.slogan {
+  color: white;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+/* Media-queries */
+
+@media (max-width: 556px) {
+  .slogan {
+    max-width: 16rem;
+  }
+}
