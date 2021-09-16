@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         paper: {
             padding: theme.spacing(2),
-            margin: "0.5rem",
+            margin: "0.2rem",
             maxWidth: 500,
         },
     })

@@ -13,9 +13,6 @@
   flex-wrap: wrap;
   text-align: center;
   margin: 0.5rem;
-  /* display: inline-block; */
-  /* overflow-wrap: inherit; */
-  /* word-wrap: break-all; */
 }
 
 .confirmationInformationContainer {
@@ -24,8 +21,6 @@
   flex-grow: 1;
   max-width: 40rem;
   border-radius: 4px;
-  /* overflow-wrap: normal; */
-  /* overflow-wrap: break-word; */
 }
 
 .table {
@@ -42,3 +37,40 @@
 .padding {
   padding: 0.5rem 1.5rem;
 }
+
+/* Media queries */
+
+@media (max-width: 768px) {
+  .confirmationInformationContainer,
+  .table {
+    max-width: 30rem;
+  }
+}
+
+@media (max-width: 568px) {
+  .confirmationInformationContainer,
+  .table {
+    max-width: 25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .confirmationInformationContainer,
+  .table {
+    max-width: 20rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .confirmationInformationContainer,
+  .table {
+    max-width: 18rem;
+  }
+}
+
+/* @media (max-width: 280px) {
+  .confirmationInformationContainer,
+  .table {
+    max-width: 17rem;
+  } */
+/* } */
