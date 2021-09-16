@@ -1,46 +1,50 @@
-# Getting Started with Create React App
+# Folk Webshop
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Folk Webshop är ett elevprojekt som skapats med hjälp av [Create React App](https://github.com/facebook/create-react-app).
+Projektet är en enkel e-handelsida som använder sig av Typescript och Material-UI. Projektet innehåller sidorna home page, details page, checkout page, confirmation page samt en notfound page. 
 
-## Available Scripts
+Folk Webshop erbjuder köpfilmer av filmbolaget Marvel. Varje filmtitel har egen produktsida som innehåller specifik information om produkten. Möjlighet att lägga till produkter i kundkorgen finns på både framsidan och produktsidan. 
 
-In the project directory, you can run:
+## Struktur
 
-### `npm start`
+Projektet är komponentbaserat och använder sig av både egenskrivna och importerade React-komponenter från externa biblioteket Material-UI. För navigering används BrowserRouter från node modules's react-router-dom. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**Komponenter som används från Material UI:**
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+[Button](https://material-ui.com/components/buttons/)
 
-### `npm test`
+[Paper](https://material-ui.com/components/paper/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+[Grid](https://material-ui.com/components/grid/)
 
-### `npm run build`
+[Table](https://material-ui.com/components/tables/)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+[Snackbar](https://material-ui.com/components/snackbars/)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+[Typography](https://material-ui.com/components/typography/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+[Icons](https://material-ui.com/components/material-icons/)
 
-### `npm run eject`
+## Installation
+Klona repot och kör `npm install` en gång för att installera alla dependencies som projektet behöver. 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Tillgängliga scripts
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+När du står i projektkatalogen kan du köra:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+#### `npm start`
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Kör appen i utvecklingsläget.
+Öppna [localhost:3000](http://localhost:3000) i webbläsaren för att se projektet.
 
-## Learn More
+Om du ändrar i projektet i det här läget kommer sidan/projektet att omrenderas.
+Du har även möjlighet att se felmeddelanden från lint i konsolen.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### `npm run build`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Kör appen för produktion till `build`- mappen.
+Kommandot buntar ihop React i produktionsläge och optimerar bygget för bästa prestanda.
+
+Den ska innehålla en titel, beskrivning av projektet, info om hur
+projektet byggs och körs samt länk till dokumentationen för designsystemet som används,
+mm.
