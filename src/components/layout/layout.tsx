@@ -1,7 +1,7 @@
 import Header from "../header/header";
 import Navbar from "../navbar/navbar";
 import { Route, Switch } from "react-router-dom";
-import HomePage from "../../pages/homepage";
+import HomePage from "../../pages/homePage";
 import ConfirmationPage from "../../pages/confirmationPage";
 import DetailsPage from "../../pages/detailsPage";
 import CheckoutPage from "../../pages/checkOutPage";
