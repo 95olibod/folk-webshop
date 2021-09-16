@@ -10,7 +10,7 @@ import {
   Theme,
 } from "@material-ui/core";
 import { MovieContext } from "../../../contexts/movieContext";
-import ButtonOwn from "../button/button";
+import ButtonOwn from "../button/addCartButton";
 import { Link } from "react-router-dom";
 
 interface Props {
@@ -66,7 +66,7 @@ const MovieDetailCard: FC<Props> = ({ movie }) => {
           <h3 className="details-h3">Titel</h3>
           <p className="details-p">{movie.title}</p>
           <h3 className="details-h3">Lanseringsår</h3>
-          <p className="details-p">{movie.realeseYear}</p>
+          <p className="details-p">{movie.releaseYear}</p>
           <h3 className="details-h3">Speltid</h3>
           <p className="details-p">{movie.duration} min</p>
           <h3 className="details-h3">Pris</h3>

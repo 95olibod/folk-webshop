@@ -15,16 +15,6 @@
   align-items: center;
 }
 
-.detail-card {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  align-items: center;
-  margin-bottom: 0.5rem;
-  position: absolute;
-  top: 6rem;
-}
-
 .slogan {
   color: white;
   padding: 0.5rem;
@@ -34,7 +24,7 @@
 /* Media-queries */
 
 @media (max-width: 556px) {
-  .title-slogan {
+  .slogan {
     max-width: 16rem;
   }
 }

@@ -1,7 +1,7 @@
 export interface MovieData {
     id: number,
     title: string,
-    realeseYear: string,
+    releaseYear: string,
     duration: string,
     price: number,
     storyline:
@@ -14,7 +14,7 @@ export const movies: MovieData[] = [
     {
         id: 0,
         title: "Iron Man",
-        realeseYear: "2008",
+        releaseYear: "2008",
         duration: "126",
         price: 199,
         storyline:
@@ -25,7 +25,7 @@ export const movies: MovieData[] = [
     {
         id: 1,
         title: "Spider-Man",
-        realeseYear: "2002",
+        releaseYear: "2002",
         duration: "121",
         price: 299,
         storyline:
@@ -36,7 +36,7 @@ export const movies: MovieData[] = [
     {
         id: 2,
         title: "Avengers: Infinity War",
-        realeseYear: "2018",
+        releaseYear: "2018",
         duration: "149",
         price: 225,
         storyline:
@@ -47,7 +47,7 @@ export const movies: MovieData[] = [
     {
         id: 3,
         title: "The Avengers",
-        realeseYear: "2012",
+        releaseYear: "2012",
         duration: "143",
         price: 199,
         storyline:
@@ -58,7 +58,7 @@ export const movies: MovieData[] = [
     {
         id: 4,
         title: "Captain Marvel",
-        realeseYear: "2019",
+        releaseYear: "2019",
         duration: "123",
         price: 159,
         storyline:
@@ -69,7 +69,7 @@ export const movies: MovieData[] = [
     {
         id: 5,
         title: "The Incredible Hulk",
-        realeseYear: "1977",
+        releaseYear: "1977",
         duration: "840",
         price: 99,
         storyline:
@@ -80,7 +80,7 @@ export const movies: MovieData[] = [
     {
         id: 6,
         title: "Avengers: Age of Ultron",
-        realeseYear: "2015",
+        releaseYear: "2015",
         duration: "141",
         price: 259,
         storyline:
@@ -91,7 +91,7 @@ export const movies: MovieData[] = [
     {
         id: 7,
         title: "Spider-man 2",
-        realeseYear: "2004",
+        releaseYear: "2004",
         duration: "127",
         price: 199,
         storyline:
@@ -102,7 +102,7 @@ export const movies: MovieData[] = [
     {
         id: 8,
         title: "Ant-Man and the Wasp",
-        realeseYear: "2018",
+        releaseYear: "2018",
         duration: "118",
         price: 219,
         storyline:
@@ -113,7 +113,7 @@ export const movies: MovieData[] = [
     {
         id: 9,
         title: "Hulk",
-        realeseYear: "2003",
+        releaseYear: "2003",
         duration: "138",
         price: 179,
         storyline:
@@ -124,7 +124,7 @@ export const movies: MovieData[] = [
     {
         id: 10,
         title: "Spider-man 3",
-        realeseYear: "2007",
+        releaseYear: "2007",
         duration: "129",
         price: 199,
         storyline:
@@ -135,7 +135,7 @@ export const movies: MovieData[] = [
     {
         id: 11,
         title: "Thor: Ragnarok",
-        realeseYear: "2017",
+        releaseYear: "2017",
         duration: "130",
         price: 239,
         storyline:

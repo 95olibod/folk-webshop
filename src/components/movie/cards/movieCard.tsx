@@ -1,4 +1,4 @@
-import Button from "../button/button";
+import Button from "../button/addCartButton";
 import { MovieData } from "../movie";
 import Snackbar, { SnackbarOrigin } from "@material-ui/core/Snackbar";
 import "../movie.css";

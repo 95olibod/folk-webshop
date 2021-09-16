@@ -8,7 +8,7 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
-import "./confirmationPage.css";
+import "./styles/confirmationPage.css";
 import { Redirect } from "react-router";
 
 //Component to display confirmation message after order is confirmed
