@@ -1,6 +1,6 @@
 import { movies } from "../components/movie/movie";
 import MovieCard from "../components/movie/cards/movieCard";
-import "./pages.css";
+import "./styles/homepage.css";
 import MainSlogan from "../components/header/mainSlogan";
 
 //Displays all movies

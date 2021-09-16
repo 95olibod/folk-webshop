@@ -1,7 +1,7 @@
 import MovieDetailCard from "../components/movie/cards/movieDetailCard";
 import { MovieData, movies } from "../components/movie/movie";
 import { RouteComponentProps } from "react-router-dom";
-import "./pages.css"
+import "./styles/detailsPage.css"
 
 interface Props {
   movie: MovieData;
