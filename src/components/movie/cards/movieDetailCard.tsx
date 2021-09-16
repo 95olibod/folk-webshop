@@ -10,7 +10,7 @@ import {
   Theme,
 } from "@material-ui/core";
 import { MovieContext } from "../../../contexts/movieContext";
-import ButtonOwn from "../button/button";
+import ButtonOwn from "../button/addCartButton";
 import { Link } from "react-router-dom";
 
 interface Props {
