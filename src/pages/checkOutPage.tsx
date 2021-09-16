@@ -30,7 +30,7 @@ const CheckoutPage = () => {
   const classes = useStyles();
 
   //Use context
-  const { addedMovies } = useContext(MovieContext);
+  const { addedMovies, countQuantityInAddedMovies} = useContext(MovieContext);
 
   //Filter movies to know which movies are in cart
   var filterAddedMoviesList = movies.filter((movie) =>
@@ -38,7 +38,7 @@ const CheckoutPage = () => {
   );
 
   //Calculate quantity of movies in cart
-  const count = addedMovies.length;
+  const count = countQuantityInAddedMovies();
 
   //If quantity of movies is not 0 display all cards, else hide form and submit cards
   if (count !== 0) {

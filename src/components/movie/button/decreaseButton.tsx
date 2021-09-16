@@ -11,10 +11,10 @@ interface Props {
 
 //Button component for decreasing quantity of item in cart
 const DecreaseButton: FC<Props> = ({ onClick, movie }) => {
-  const { addedMovies } = useContext(MovieContext);
+  const { countQuantityOfAddedMovie } = useContext(MovieContext);
 
   //Calculate quantity
-  const count = addedMovies.filter((obj) => obj === movie.id).length;
+  const count = countQuantityOfAddedMovie(movie);
 
   //Check if quantity of specific item in cart is only one
   const isOnlyOne = () => {

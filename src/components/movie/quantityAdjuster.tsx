@@ -13,11 +13,14 @@ interface Props {
 //Component to make a quantity adjuster bar in cart
 const QuantityAdjuster: FC<Props> = ({ movie }) => {
   //Use context
-  const { addedMovies, addToAddedMovies, decreaseAddedMovies } =
-    useContext(MovieContext);
+  const {
+    addToAddedMovies,
+    decreaseAddedMovies,
+    countQuantityOfAddedMovie,
+  } = useContext(MovieContext);
 
   //Calculate quantity for typography display
-  const count = addedMovies.filter((obj) => obj === movie.id).length;
+  const count = countQuantityOfAddedMovie(movie);
 
   return (
     <div className="flex row align-center justify-center">

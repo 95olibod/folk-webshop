@@ -1,10 +1,13 @@
 import { createContext, FC, useEffect, useState } from "react";
+import { MovieData } from "../components/movie/movie";
 
 interface ContextValue {
   addedMovies: number[];
   addToAddedMovies: (id: number) => void;
   decreaseAddedMovies: (id: number) => void;
   deleteFromAddedMovies: (id: number) => void;
+  countQuantityOfAddedMovie: (movie: MovieData) => number;
+  countQuantityInAddedMovies: () => number;
 }
 
 //Define and export context functions
@@ -13,11 +16,12 @@ export const MovieContext = createContext<ContextValue>({
   addToAddedMovies: () => {},
   decreaseAddedMovies: () => {},
   deleteFromAddedMovies: () => {},
+  countQuantityOfAddedMovie: () => 0,
+  countQuantityInAddedMovies: () => 0,
 });
 
 //Provider of movies
 const MovieProvider: FC = (props) => {
-
   //Define state
   const [addedMovies, setAddedMovies] = useState<number[]>(
     JSON.parse(localStorage.getItem("addedMovies") || "[]")
@@ -43,6 +47,18 @@ const MovieProvider: FC = (props) => {
     setAddedMovies(moviesToSave);
   };
 
+  //Count quantity of specific movie added
+  const countQuantityOfAddedMovie = (movie: MovieData) => {
+    const count = addedMovies.filter((obj) => obj === movie.id).length;
+    return count;
+  };
+
+  //Count quantity of all added movies
+  const countQuantityInAddedMovies = () => {
+    const count = addedMovies.length;
+    return count;
+  };
+
   //Fill local storage with added movies
   useEffect(() => {
     localStorage.setItem("addedMovies", JSON.stringify(addedMovies));
@@ -55,6 +71,8 @@ const MovieProvider: FC = (props) => {
         addToAddedMovies,
         decreaseAddedMovies,
         deleteFromAddedMovies,
+        countQuantityOfAddedMovie,
+        countQuantityInAddedMovies,
       }}
     >
       {props.children}
