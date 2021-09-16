@@ -27,7 +27,7 @@ const QuantityAdjuster: FC<Props> = ({ movie }) => {
       <div>
         <DecreaseButton
           movie={movie}
-          onClick={() => decreaseAddedMovies(movie.id)}
+          onClick={() => decreaseAddedMovies(movie)}
         />
       </div>
       <div>
@@ -36,7 +36,7 @@ const QuantityAdjuster: FC<Props> = ({ movie }) => {
         </Typography>
       </div>
       <div>
-        <IncreaseButton onClick={() => addToAddedMovies(movie.id)} />
+        <IncreaseButton onClick={() => addToAddedMovies(movie)} />
       </div>
     </div>
   );

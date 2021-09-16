@@ -9,13 +9,13 @@ const MoviePriceTotal = () => {
 
   //Filter movies to know which movies are in cart
   const filteredMovieList = movies.filter((movie) =>
-    addedMovies.includes(movie.id)
+    addedMovies.includes(movie)
   );
 
   //Calculate quantity of every specific movie in cart
   let addedMoviesList = [];
   for (const item of addedMovies) {
-    const movie = filteredMovieList.find((movie) => item === movie.id);
+    const movie = filteredMovieList.find((movie) => item.id === movie.id);
     if (movie) {
       addedMoviesList.push(movie);
     }

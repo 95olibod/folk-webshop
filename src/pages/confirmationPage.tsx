@@ -21,13 +21,13 @@ const ConfirmationPage = () => {
 
   //Filter movies to know which movies were in cart
   const filteredAddedMoviesList = movies.filter((movie) =>
-    addedMovies.includes(movie.id)
+    addedMovies.includes(movie)
   );
 
   //Get the information for of every specific movie that were in cart
   let displayArray: MovieData[] = [];
   for (const item of addedMovies) {
-    const movie = filteredAddedMoviesList.find((movie) => item === movie.id);
+    const movie = filteredAddedMoviesList.find((movie) => item.id === movie.id);
     if (movie) {
       displayArray.push(movie);
     }

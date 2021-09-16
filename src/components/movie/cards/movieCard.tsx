@@ -41,7 +41,7 @@ const MovieCard: FC<Props> = ({ movie}) => {
     const [isSnackbarOpen, setIsSnackbarOpen] = useState(false);
 
     const handleClick = (movie: MovieData) => {
-        addToAddedMovies(movie.id);
+        addToAddedMovies(movie);
         setIsSnackbarOpen(true);
     };
 

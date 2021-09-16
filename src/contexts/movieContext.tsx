@@ -2,10 +2,10 @@ import { createContext, FC, useEffect, useState } from "react";
 import { MovieData } from "../components/movie/movie";
 
 interface ContextValue {
-  addedMovies: number[];
-  addToAddedMovies: (id: number) => void;
-  decreaseAddedMovies: (id: number) => void;
-  deleteFromAddedMovies: (id: number) => void;
+  addedMovies: MovieData[];
+  addToAddedMovies: (movie: MovieData) => void;
+  decreaseAddedMovies: (movie: MovieData) => void;
+  deleteFromAddedMovies: (movie: MovieData) => void;
   countQuantityOfAddedMovie: (movie: MovieData) => number;
   countQuantityInAddedMovies: () => number;
 }
@@ -22,34 +22,35 @@ export const MovieContext = createContext<ContextValue>({
 
 //Provider of movies
 const MovieProvider: FC = (props) => {
+  
   //Define state
-  const [addedMovies, setAddedMovies] = useState<number[]>(
+  const [addedMovies, setAddedMovies] = useState<MovieData[]>(
     JSON.parse(localStorage.getItem("addedMovies") || "[]")
   );
 
   //Add movie
-  const addToAddedMovies = (id: number) => {
-    setAddedMovies([...addedMovies, id]);
+  const addToAddedMovies = (movie: MovieData) => {
+    setAddedMovies([...addedMovies, movie]);
   };
 
   //Decrease qauntity of movie added
-  const decreaseAddedMovies = (id: number) => {
+  const decreaseAddedMovies = (movie: MovieData) => {
     const indexOfMovieToRemove = addedMovies.findIndex(
-      (imageId) => imageId === id
+      (imageId) => imageId.id === movie.id
     );
     addedMovies.splice(indexOfMovieToRemove, 1);
     setAddedMovies([...addedMovies]);
   };
 
   //Delete movie by id
-  const deleteFromAddedMovies = (id: number) => {
-    const moviesToSave = addedMovies.filter((movieId) => movieId !== id);
+  const deleteFromAddedMovies = (movie: MovieData) => {
+    const moviesToSave = addedMovies.filter((movieId) => movieId.id !== movie.id);
     setAddedMovies(moviesToSave);
   };
 
   //Count quantity of specific movie added
   const countQuantityOfAddedMovie = (movie: MovieData) => {
-    const count = addedMovies.filter((obj) => obj === movie.id).length;
+    const count = addedMovies.filter((obj) => obj.id === movie.id).length;
     return count;
   };
 

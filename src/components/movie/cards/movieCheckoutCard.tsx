@@ -54,7 +54,7 @@ const MovieCheckoutCard: FC<Props> = ({ movie }) => {
           <Typography variant="subtitle2">{movie.price} SEK</Typography>
         </Grid>
         <Grid item xs={2}>
-          <DeleteButton onClick={() => deleteFromAddedMovies(movie.id)} />
+          <DeleteButton onClick={() => deleteFromAddedMovies(movie)} />
         </Grid>
         <Grid item container xs={12} alignItems="center">
           <QuantityAdjuster movie={movie} />

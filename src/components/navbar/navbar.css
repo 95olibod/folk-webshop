@@ -12,6 +12,11 @@
   z-index: 1;
 }
 
+.button-group {
+  display: flex;
+  align-items: center;
+}
+
 .logoStyle {
   object-fit: contain;
   height: 100%;

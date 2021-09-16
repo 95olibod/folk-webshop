@@ -1,5 +1,5 @@
-import { MovieData } from "../movie";
-import "../movie.css";
+import { MovieData } from "../movie/movie";
+import "../movie/movie.css";
 import { FC, useContext, useState } from "react";
 import {
   Button,
@@ -9,8 +9,8 @@ import {
   Snackbar,
   Theme,
 } from "@material-ui/core";
-import { MovieContext } from "../../../contexts/movieContext";
-import ButtonOwn from "../button/addCartButton";
+import { MovieContext } from "../../contexts/movieContext";
+import AddCartButton from "./editMovieButton";
 import { Link } from "react-router-dom";
 
 interface Props {
@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 //Displays detail information on a specific movie
-const MovieDetailCard: FC<Props> = ({ movie }) => {
+const AdminMovieDetailCard: FC<Props> = ({ movie }) => {
 
   //Implement styles
   const classes = useStyles();
@@ -40,16 +40,12 @@ const MovieDetailCard: FC<Props> = ({ movie }) => {
   //Use context
   const { addToAddedMovies } = useContext(MovieContext);
 
-  //Sets snackbar
-  const [isSnackbarOpen, setIsSnackbarOpen] = useState(false);
+  
 
-  //Displays snackbar
+  //opens optional edits
   const handleClick = (movie: MovieData) => {
-    addToAddedMovies(movie);
-    setIsSnackbarOpen(true);
+   //metod som redigerar och visar en save button
   };
-
-  const hideSnackbar = () => setIsSnackbarOpen(false);
 
   return (
     <Paper className={classes.paper}>
@@ -76,22 +72,10 @@ const MovieDetailCard: FC<Props> = ({ movie }) => {
       <h3 className="details-h3">Handling</h3>
       <p className="storyline-p">{movie.storyline}</p>
       <div className="flex space-between">
-        <Link to="/" className="noTextDecoration">
-          <Button variant="contained" color="default">
-            Tillbaka
-          </Button>
-        </Link>
-        <ButtonOwn onClick={() => handleClick(movie)} />
+        <AddCartButton onClick={() => handleClick(movie)} />
       </div>
-      <Snackbar
-        anchorOrigin={{ vertical: "top", horizontal: "right" }}
-        open={isSnackbarOpen}
-        autoHideDuration={3000}
-        onClose={hideSnackbar}
-        message="Produkten tillagd i varukorg"
-      />
     </Paper>
   );
 };
 
-export default MovieDetailCard;
+export default AdminMovieDetailCard;
