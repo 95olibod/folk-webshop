@@ -7,6 +7,7 @@ import DetailsPage from "../../pages/detailsPage";
 import CheckoutPage from "../../pages/checkOutPage";
 import NotFoundPage from "../../pages/notFoundPage";
 import AdminPage from "../../pages/adminPage"
+import EditPage from "../../pages/editPage"
 
 function Layout() {
   return (
@@ -19,6 +20,7 @@ function Layout() {
         <Route path="/checkout" component={CheckoutPage} />
         <Route path="/confirmation" component={ConfirmationPage} />
         <Route path="/admin" component={AdminPage} />
+        <Route path="/edit/:id" component={EditPage} />
         <Route component={NotFoundPage} />
       </Switch>
     </div>

@@ -11,6 +11,7 @@ import {
 } from "@material-ui/core";
 import { MovieContext } from "../../contexts/movieContext";
 import AddCartButton from "./editMovieButton";
+import EditForm from "./editForm";
 import { Link } from "react-router-dom";
 
 interface Props {
@@ -38,13 +39,16 @@ const AdminMovieDetailCard: FC<Props> = ({ movie }) => {
   const classes = useStyles();
 
   //Use context
-  const { addToAddedMovies } = useContext(MovieContext);
+  const { addToAddedMovies, addNewMovie } = useContext(MovieContext);
 
-  
+  const url = `/edit/${movie.id}`;
 
   //opens optional edits
   const handleClick = (movie: MovieData) => {
    //metod som redigerar och visar en save button
+   <Link to={url}/>
+   console.log(url)
+   //addNewMovie(movie)
   };
 
   return (
@@ -72,7 +76,9 @@ const AdminMovieDetailCard: FC<Props> = ({ movie }) => {
       <h3 className="details-h3">Handling</h3>
       <p className="storyline-p">{movie.storyline}</p>
       <div className="flex space-between">
+      <Link to={url}>
         <AddCartButton onClick={() => handleClick(movie)} />
+ </Link>
       </div>
     </Paper>
   );

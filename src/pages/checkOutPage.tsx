@@ -33,19 +33,13 @@ const CheckoutPage = () => {
   const { addedMovies, countQuantityInAddedMovies} = useContext(MovieContext);
 
   //Filter movies to know which movies are in cart
-  // const filterAddedMoviesList = addedMovies.filter((movie => movies.includes(movie)))
+
+//   var filterAddedMoviesList = movies.filter((item) =>
+//   addedMovies.includes(item.id)
+// );
   
-  const filterAddedMoviesList = addedMovies.filter((movie) => movies.includes(movie));
-  
-  
-  let result = addedMovies.reduce(function (r, a) {
-    r[a.id] = r[a.id] || [];
-    r[a.id].push(a);
-    return r;
-  }, [Object.create(null)]);
-  
-  console.log(result)
-  
+
+const test = movies.filter(item => addedMovies.some(d => d.id === item.id))
 
   // const filterAddedMoviesList = movies.filter((movie => addedMovies.includes(movie));
 
@@ -60,7 +54,7 @@ const CheckoutPage = () => {
         <Grid item xs={9} sm={8} md={5}>
           <Paper className={classes.paper}>
             <MovieCheckoutCardTitle />
-            {filterAddedMoviesList.map((movie) => (
+            {test.map((movie) => (
               <MovieCheckoutCard key={movie.id} movie={movie} />         
             ))}
           </Paper>
@@ -76,7 +70,7 @@ const CheckoutPage = () => {
         <Grid item xs={9} sm={8} md={5}>
           <Paper className={classes.paper}>
             <MovieCheckoutCardTitle />
-            {filterAddedMoviesList.map((movie) => (
+            {test.map((movie) => (
               <MovieCheckoutCard key={movie.id} movie={movie} />
             ))}
           </Paper>

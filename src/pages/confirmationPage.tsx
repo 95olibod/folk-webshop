@@ -20,9 +20,8 @@ const ConfirmationPage = () => {
   const { addedMovies } = useContext(MovieContext);
 
   //Filter movies to know which movies were in cart
-  const filteredAddedMoviesList = movies.filter((movie) =>
-    addedMovies.includes(movie)
-  );
+  const filteredAddedMoviesList = movies.filter(item => addedMovies.some(d => d.id === item.id))
+  ;  
 
   //Get the information for of every specific movie that were in cart
   let displayArray: MovieData[] = [];

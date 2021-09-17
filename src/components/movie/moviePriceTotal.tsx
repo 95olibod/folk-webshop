@@ -8,9 +8,7 @@ const MoviePriceTotal = () => {
   const { addedMovies } = useContext(MovieContext);
 
   //Filter movies to know which movies are in cart
-  const filteredMovieList = movies.filter((movie) =>
-    addedMovies.includes(movie)
-  );
+  const filteredMovieList = movies.filter(item => addedMovies.some(d => d.id === item.id))
 
   //Calculate quantity of every specific movie in cart
   let addedMoviesList = [];

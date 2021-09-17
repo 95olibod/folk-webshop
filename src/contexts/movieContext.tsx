@@ -3,6 +3,8 @@ import { MovieData } from "../components/movie/movie";
 
 interface ContextValue {
   addedMovies: MovieData[];
+  newMovies: MovieData[];
+  addNewMovie: (movie: MovieData) => void;
   addToAddedMovies: (movie: MovieData) => void;
   decreaseAddedMovies: (movie: MovieData) => void;
   deleteFromAddedMovies: (movie: MovieData) => void;
@@ -18,6 +20,8 @@ export const MovieContext = createContext<ContextValue>({
   deleteFromAddedMovies: () => {},
   countQuantityOfAddedMovie: () => 0,
   countQuantityInAddedMovies: () => 0,
+  newMovies: [],
+  addNewMovie: () => {}
 });
 
 //Provider of movies
@@ -27,6 +31,14 @@ const MovieProvider: FC = (props) => {
   const [addedMovies, setAddedMovies] = useState<MovieData[]>(
     JSON.parse(localStorage.getItem("addedMovies") || "[]")
   );
+
+  const [newMovies, setNewMovies] = useState<MovieData[]>(
+    JSON.parse(localStorage.getItem("newMovies") || "[]")
+  );
+
+  const addNewMovie = (movie: MovieData) => {
+    setNewMovies([...newMovies, movie]);
+  };
 
   //Add movie
   const addToAddedMovies = (movie: MovieData) => {
@@ -65,9 +77,15 @@ const MovieProvider: FC = (props) => {
     localStorage.setItem("addedMovies", JSON.stringify(addedMovies));
   }, [addedMovies]);
 
+  useEffect(() => {
+      localStorage.setItem("newMovies", JSON.stringify(newMovies));
+  }, [newMovies]);
+
   return (
     <MovieContext.Provider
       value={{
+        addNewMovie,
+        newMovies,
         addedMovies,
         addToAddedMovies,
         decreaseAddedMovies,
