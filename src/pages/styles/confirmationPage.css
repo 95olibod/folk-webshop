@@ -38,6 +38,11 @@
   padding: 0.5rem 1.5rem;
 }
 
+.link {
+  text-decoration: underline;
+  color: white;
+}
+
 /* Media queries */
 
 @media (max-width: 768px) {

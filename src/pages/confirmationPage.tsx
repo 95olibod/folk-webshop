@@ -10,6 +10,7 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import "./styles/confirmationPage.css";
 import { Redirect } from "react-router";
+import { Link } from "react-router-dom";
 
 //Component to display confirmation message after order is confirmed
 const ConfirmationPage = () => {
@@ -112,6 +113,9 @@ const ConfirmationPage = () => {
             </TableBody>
           </Table>
         </TableContainer>
+        <div>
+          <Link to="/" className="link">Gå tillbaka till startsidan</Link>
+        </div>
       </div>
     );
   }
